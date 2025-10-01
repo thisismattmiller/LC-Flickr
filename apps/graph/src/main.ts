@@ -117,7 +117,7 @@ class GraphVisualization {
   private async loadData(): Promise<void> {
     try {
       // Load the actual Parquet file from the data directory
-      const data = await this.dataLoader.loadParquet('/data/network_data.parquet');
+      const data = await this.dataLoader.loadParquet('./data/network_data.parquet');
       this.nodes = data.nodes;
       this.edges = data.edges;
       this.renderer.setData(this.nodes, this.edges);
