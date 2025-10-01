@@ -35,7 +35,29 @@ export class CanvasRenderer {
   
   private async loadNodeLabels(): Promise<void> {
     try {
-      let response = await fetch('/data/node_labels.json').catch(() => fetch('./data/node_labels.json'));
+      const urls = ['/data/node_labels.json', './data/node_labels.json'];
+      let response;
+      let lastError;
+
+      for (const url of urls) {
+        try {
+          console.log(`Attempting to load node labels from: ${url}`);
+          response = await fetch(url);
+          if (response.ok) {
+            console.log(`Successfully loaded node labels from: ${url}`);
+            break;
+          }
+          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        } catch (error) {
+          console.warn(`Failed to load from ${url}:`, error);
+          lastError = error;
+        }
+      }
+
+      if (!response || !response.ok) {
+        throw lastError || new Error('Failed to load node labels from all attempted URLs');
+      }
+
       const data = await response.json();
       for (const [qid, nodeData] of Object.entries(data)) {
         const info = nodeData as any;
@@ -83,7 +105,29 @@ export class CanvasRenderer {
   
   private async loadImageLabels(): Promise<void> {
     try {
-      let response = await fetch('/data/image_labels.json').catch(() => fetch('./data/image_labels.json'));
+      const urls = ['/data/image_labels.json', './data/image_labels.json'];
+      let response;
+      let lastError;
+
+      for (const url of urls) {
+        try {
+          console.log(`Attempting to load image labels from: ${url}`);
+          response = await fetch(url);
+          if (response.ok) {
+            console.log(`Successfully loaded image labels from: ${url}`);
+            break;
+          }
+          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        } catch (error) {
+          console.warn(`Failed to load from ${url}:`, error);
+          lastError = error;
+        }
+      }
+
+      if (!response || !response.ok) {
+        throw lastError || new Error('Failed to load image labels from all attempted URLs');
+      }
+
       const data = await response.json();
       for (const [photoId, label] of Object.entries(data)) {
         this.imageLabels.set(photoId, label as string);

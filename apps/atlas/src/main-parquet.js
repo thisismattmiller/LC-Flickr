@@ -36,9 +36,11 @@ async function loadData() {
             ]);
             console.log('Parquet data loaded successfully from', dataPath);
         } catch (error) {
-            // If absolute path fails, try relative path (for GitHub Pages)
-            console.log('Failed to load from absolute path, trying relative path...');
-            dataPath = './data/data.parquet';
+            // If absolute path fails, construct full URL (for GitHub Pages)
+            console.log('Failed to load from absolute path, trying full URL...');
+            const baseUrl = window.location.href.replace(/\/[^\/]*$/, '/');
+            dataPath = `${baseUrl}data/data.parquet`;
+            console.log('Trying to load from:', dataPath);
             await coordinator().exec([
                 loadParquet("comments", dataPath)
             ]);

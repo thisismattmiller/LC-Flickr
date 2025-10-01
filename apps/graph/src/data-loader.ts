@@ -4,14 +4,29 @@ import { asyncBufferFromUrl, parquetReadObjects } from 'hyparquet';
 export class DataLoader {
   async loadParquet(url: string): Promise<GraphData> {
     try {
-      // Use hyparquet to load the Parquet file
-      // Try absolute path first, fallback to relative path
+      // Try to fetch the file, trying both absolute and relative paths
+      const urls = [url];
+      if (url.startsWith('/')) {
+        urls.push('.' + url);
+      }
+
       let file;
-      try {
-        file = await asyncBufferFromUrl({ url });
-      } catch (error) {
-        const relativeUrl = url.startsWith('/') ? '.' + url : url;
-        file = await asyncBufferFromUrl({ url: relativeUrl });
+      let lastError;
+
+      for (const tryUrl of urls) {
+        try {
+          console.log(`Attempting to load parquet from: ${tryUrl}`);
+          file = await asyncBufferFromUrl({ url: tryUrl });
+          console.log(`Successfully loaded from: ${tryUrl}`);
+          break;
+        } catch (error) {
+          console.warn(`Failed to load from ${tryUrl}:`, error);
+          lastError = error;
+        }
+      }
+
+      if (!file) {
+        throw lastError || new Error('Failed to load parquet file from all attempted URLs');
       }
       
       // Read all objects from the Parquet file

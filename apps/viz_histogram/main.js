@@ -8,18 +8,26 @@ let data = null;
 
 // Load histogram data
 async function loadData() {
-    // Try absolute path first, then relative path
-    try {
-        const response = await fetch('/histogram_data.json');
-        if (!response.ok) throw new Error('Not found');
-        data = await response.json();
-        return data;
-    } catch (error) {
-        // Fallback to relative path for GitHub Pages
-        const response = await fetch('./histogram_data.json');
-        data = await response.json();
-        return data;
+    // Try multiple paths for different deployment scenarios
+    const paths = [
+        '/histogram_data.json',      // Dev server
+        './histogram_data.json',     // Same directory (GitHub Pages)
+        '../histogram_data.json'     // Parent directory (GitHub Pages with dist)
+    ];
+
+    for (const path of paths) {
+        try {
+            const response = await fetch(path);
+            if (response.ok) {
+                data = await response.json();
+                return data;
+            }
+        } catch (error) {
+            continue;
+        }
     }
+
+    throw new Error('Could not load histogram_data.json from any path');
 }
 
 // Initialize the year selector
