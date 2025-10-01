@@ -8,9 +8,17 @@ let data = null;
 
 // Load user activity data
 async function loadData() {
-    const response = await fetch('/user_activity_20_80_analysis.json');
-    data = await response.json();
-    return data;
+    try {
+        const response = await fetch('/user_activity_20_80_analysis.json');
+        if (!response.ok) throw new Error('Absolute path failed');
+        data = await response.json();
+        return data;
+    } catch (error) {
+        // Fallback to relative path for GitHub Pages
+        const response = await fetch('./user_activity_20_80_analysis.json');
+        data = await response.json();
+        return data;
+    }
 }
 
 // Update statistics display

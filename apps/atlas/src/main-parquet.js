@@ -26,17 +26,24 @@ async function initializeDuckDB() {
 // Load the Parquet file into DuckDB
 async function loadData() {
     console.log('Loading Parquet data...');
-    
+
     try {
-        // Load the parquet file into a table named 'comments'
-        await coordinator().exec([
-            loadParquet(
-                "comments",
-                new URL('/data/data.parquet', window.location.href).href
-            )
-        ]);
-        
-        console.log('Parquet data loaded successfully');
+        // Try loading with absolute path first (for dev)
+        let dataPath = '/data/data.parquet';
+        try {
+            await coordinator().exec([
+                loadParquet("comments", dataPath)
+            ]);
+            console.log('Parquet data loaded successfully from', dataPath);
+        } catch (error) {
+            // If absolute path fails, try relative path (for GitHub Pages)
+            console.log('Failed to load from absolute path, trying relative path...');
+            dataPath = './data/data.parquet';
+            await coordinator().exec([
+                loadParquet("comments", dataPath)
+            ]);
+            console.log('Parquet data loaded successfully from', dataPath);
+        }
         
         // Query to get table info
         const tableInfo = await coordinator().query(

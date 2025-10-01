@@ -8,9 +8,18 @@ let data = null;
 
 // Load histogram data
 async function loadData() {
-    const response = await fetch('/histogram_data.json');
-    data = await response.json();
-    return data;
+    // Try absolute path first, then relative path
+    try {
+        const response = await fetch('/histogram_data.json');
+        if (!response.ok) throw new Error('Not found');
+        data = await response.json();
+        return data;
+    } catch (error) {
+        // Fallback to relative path for GitHub Pages
+        const response = await fetch('./histogram_data.json');
+        data = await response.json();
+        return data;
+    }
 }
 
 // Initialize the year selector

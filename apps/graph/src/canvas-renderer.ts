@@ -35,7 +35,7 @@ export class CanvasRenderer {
   
   private async loadNodeLabels(): Promise<void> {
     try {
-      const response = await fetch('/data/node_labels.json');
+      let response = await fetch('/data/node_labels.json').catch(() => fetch('./data/node_labels.json'));
       const data = await response.json();
       for (const [qid, nodeData] of Object.entries(data)) {
         const info = nodeData as any;
@@ -83,7 +83,7 @@ export class CanvasRenderer {
   
   private async loadImageLabels(): Promise<void> {
     try {
-      const response = await fetch('/data/image_labels.json');
+      let response = await fetch('/data/image_labels.json').catch(() => fetch('./data/image_labels.json'));
       const data = await response.json();
       for (const [photoId, label] of Object.entries(data)) {
         this.imageLabels.set(photoId, label as string);

@@ -5,7 +5,14 @@ export class DataLoader {
   async loadParquet(url: string): Promise<GraphData> {
     try {
       // Use hyparquet to load the Parquet file
-      const file = await asyncBufferFromUrl({ url });
+      // Try absolute path first, fallback to relative path
+      let file;
+      try {
+        file = await asyncBufferFromUrl({ url });
+      } catch (error) {
+        const relativeUrl = url.startsWith('/') ? '.' + url : url;
+        file = await asyncBufferFromUrl({ url: relativeUrl });
+      }
       
       // Read all objects from the Parquet file
       const data = await parquetReadObjects({
