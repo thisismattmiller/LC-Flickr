@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flickr Comments Timeline</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/date-fns@2.29.3/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 30px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        .chart-container {
+            position: relative;
+            height: 500px;
+            margin-bottom: 30px;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        .controls {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 0 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #764ba2;
+        }
+        button.active {
+            background: #764ba2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Flickr Library of Congress Comments Timeline</h1>
+        <div class="subtitle">Daily comment activity from 2008 to 2024</div>
+        
+        <div class="controls">
+            <button onclick="setTimeRange('all')" class="active" id="btn-all">All Time</button>
+            <button onclick="setYear(2008)" id="btn-2008">2008</button>
+            <button onclick="setYear(2009)" id="btn-2009">2009</button>
+            <button onclick="setYear(2010)" id="btn-2010">2010</button>
+            <button onclick="setYear(2011)" id="btn-2011">2011</button>
+            <button onclick="setYear(2012)" id="btn-2012">2012</button>
+            <button onclick="setYear(2013)" id="btn-2013">2013</button>
+            <button onclick="setYear(2014)" id="btn-2014">2014</button>
+            <button onclick="setYear(2015)" id="btn-2015">2015</button>
+            <button onclick="setYear(2016)" id="btn-2016">2016</button>
+            <button onclick="setYear(2017)" id="btn-2017">2017</button>
+            <button onclick="setYear(2018)" id="btn-2018">2018</button>
+            <button onclick="setYear(2019)" id="btn-2019">2019</button>
+            <button onclick="setYear(2020)" id="btn-2020">2020</button>
+            <button onclick="setYear(2021)" id="btn-2021">2021</button>
+            <button onclick="setYear(2022)" id="btn-2022">2022</button>
+            <button onclick="setYear(2023)" id="btn-2023">2023</button>
+            <button onclick="setYear(2024)" id="btn-2024">2024</button>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="commentsChart"></canvas>
+        </div>
+
+        <div class="stats" id="stats">
+            <div class="stat-card">
+                <div class="stat-value" id="totalComments">-</div>
+                <div class="stat-label">Total Comments</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="totalDays">-</div>
+                <div class="stat-label">Days with Activity</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="avgComments">-</div>
+                <div class="stat-label">Average per Day</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="peakDay">-</div>
+                <div class="stat-label">Peak Day Comments</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let chart;
+        let allData = [];
+        let currentData = [];
+
+        async function loadData() {
+            try {
+                const response = await fetch('../data/comments_by_day.json');
+                allData = await response.json();
+                
+                // Convert date strings to Date objects and sort
+                allData = allData.map(item => ({
+                    x: new Date(item.day),
+                    y: item.comment_count
+                })).sort((a, b) => a.x - b.x);
+
+                currentData = [...allData];
+                updateChart();
+                updateStats();
+            } catch (error) {
+                console.error('Error loading data:', error);
+                alert('Error loading data. Please ensure comments_by_day.json exists in ../data/');
+            }
+        }
+
+        function updateChart() {
+            const ctx = document.getElementById('commentsChart').getContext('2d');
+            
+            if (chart) {
+                chart.destroy();
+            }
+
+            chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: 'Comments per Day',
+                        data: currentData,
+                        borderColor: 'rgb(102, 126, 234)',
+                        backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                        borderWidth: 2,
+                        pointRadius: 0,
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: 'rgb(102, 126, 234)',
+                        tension: 0.1,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                title: function(context) {
+                                    const date = new Date(context[0].parsed.x);
+                                    return date.toLocaleDateString('en-US', { 
+                                        weekday: 'long', 
+                                        year: 'numeric', 
+                                        month: 'long', 
+                                        day: 'numeric' 
+                                    });
+                                },
+                                label: function(context) {
+                                    return `Comments: ${context.parsed.y}`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            type: 'time',
+                            time: {
+                                unit: 'month',
+                                displayFormats: {
+                                    month: 'MMM yyyy'
+                                }
+                            },
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                maxRotation: 0,
+                                autoSkip: true,
+                                maxTicksLimit: 12
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            },
+                            ticks: {
+                                callback: function(value) {
+                                    return value.toLocaleString();
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateStats() {
+            const totalComments = currentData.reduce((sum, item) => sum + item.y, 0);
+            const totalDays = currentData.length;
+            const avgComments = totalDays > 0 ? Math.round(totalComments / totalDays) : 0;
+            const peakDay = Math.max(...currentData.map(item => item.y));
+
+            document.getElementById('totalComments').textContent = totalComments.toLocaleString();
+            document.getElementById('totalDays').textContent = totalDays.toLocaleString();
+            document.getElementById('avgComments').textContent = avgComments.toLocaleString();
+            document.getElementById('peakDay').textContent = peakDay.toLocaleString();
+        }
+
+        function setTimeRange(range) {
+            // Update button states
+            document.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`btn-${range}`).classList.add('active');
+
+            if (range === 'all') {
+                currentData = [...allData];
+                if (chart) {
+                    chart.options.scales.x.time.unit = 'month';
+                }
+                updateChart();
+                updateStats();
+            }
+        }
+
+        function setYear(year) {
+            // Update button states
+            document.querySelectorAll('button').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`btn-${year}`).classList.add('active');
+
+            const startDate = new Date(year, 0, 1);
+            const endDate = new Date(year, 11, 31);
+            
+            currentData = allData.filter(item => item.x >= startDate && item.x <= endDate);
+            
+            // Adjust x-axis unit to show days for single year view
+            if (chart) {
+                chart.options.scales.x.time.unit = 'month';
+            }
+            
+            updateChart();
+            updateStats();
+        }
+
+        // Load data when page loads
+        loadData();
+    </script>
+</body>
+</html>

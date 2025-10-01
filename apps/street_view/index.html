@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library of Congress Street View Explorer</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #fff;
+            color: #000;
+            padding: 20px;
+        }
+        
+        #header {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+            padding-top: 50px;
+            position: relative;
+        }
+        
+        #filters {
+            display: flex;
+            gap: 50px;
+            max-height: 300px;
+            overflow-y: auto;
+            transition: max-height 0.3s ease;
+        }
+        
+        #filters.collapsed {
+            max-height: 0;
+            overflow: hidden;
+        }
+        
+        .filter-group {
+            flex: 1;
+        }
+        
+        .filter-group h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .filter-list {
+            list-style: none;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        
+        .filter-list li {
+            cursor: pointer;
+            padding: 2px 5px;
+            transition: background 0.2s;
+        }
+        
+        .filter-list li:hover {
+            background: #f0f0f0;
+        }
+        
+        .filter-list li.active {
+            background: #000;
+            color: #fff;
+        }
+        
+        #toggle-filters {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            padding: 8px 16px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            z-index: 10;
+        }
+        
+        #toggle-filters:hover {
+            background: #555;
+        }
+        
+        #location-section {
+            margin-bottom: 40px;
+        }
+        
+        #location-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 30px;
+            padding: 20px;
+        }
+        
+        #location-shape {
+            width: 300px;
+            height: 300px;
+            cursor: grab;
+        }
+        
+        #location-shape:active {
+            cursor: grabbing;
+        }
+        
+        #shape-svg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        #location-info {
+            text-align: left;
+        }
+        
+        #location-info h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        #location-info .count {
+            font-size: 20px;
+            color: #666;
+        }
+        
+        #photos-section {
+            margin-top: 40px;
+        }
+        
+        #photo-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            position: relative;
+        }
+        
+        .photo-thumb {
+            width: 100%;
+            aspect-ratio: 1;
+            cursor: pointer;
+            transition: transform 0.2s;
+            background: #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .photo-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .photo-thumb:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .detail-view {
+            grid-column: 1 / -1;
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 30px;
+            margin: 20px 0;
+            display: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .detail-view.active {
+            display: block;
+        }
+        
+        .detail-content {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .detail-image {
+            width: 50%;
+        }
+        
+        .detail-image img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .street-view {
+            width: 50%;
+            height: 500px;
+            background: #f0f0f0;
+        }
+        
+        .street-view iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .detail-info {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+        
+        .detail-info h3 {
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .detail-info p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .close-button {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .close-button:hover {
+            background: #333;
+        }
+        
+        
+        .detail-info a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        .detail-info a:hover {
+            text-decoration: underline;
+        }
+        
+        #about-button {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            padding: 8px 16px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            z-index: 10;
+        }
+        
+        #about-button:hover {
+            background: #555;
+        }
+        
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-overlay.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-close:hover {
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <button id="toggle-filters">View Other Locations</button>
+        <button id="about-button">About</button>
+        <div id="filters">
+            <div class="filter-group" id="states-group">
+                <h3>United States</h3>
+                <ul class="filter-list" id="states-list"></ul>
+            </div>
+            <div class="filter-group" id="countries-group">
+                <h3>Countries</h3>
+                <ul class="filter-list" id="countries-list"></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="location-section">
+        <div id="location-container">
+            <div id="location-shape">
+                <svg id="shape-svg"></svg>
+            </div>
+            <div id="location-info">
+                <h2 id="location-name">Select a location</h2>
+                <div class="count" id="location-count">0 photos</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="photos-section">
+        <div id="photo-grid"></div>
+    </div>
+    
+    <!-- About Modal -->
+    <div id="about-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="document.getElementById('about-modal').classList.remove('active')">&times;</button>
+            <h2>About This Project</h2>
+            <p>Content will be added here later.</p>
+        </div>
+    </div>
+    
+    <script>
+        let photoData = [];
+        let currentLocation = null;
+        let activeDetailView = null;
+        let isUpdatingHash = false; // Flag to prevent infinite loop
+        
+        const stateGeojsonMap = {
+            "California": "california.geojson",
+            "Illinois": "illinois.geojson",
+            "Iowa": "iowa.geojson",
+            "Oregon": "oregon.geojson",
+            "Texas": "texas.geojson",
+            "Arkansas": "arkansas.geojson",
+            "Missouri": "missouri.geojson",
+            "Minnesota": "minnesota.geojson",
+            "New Jersey": "new_jersey.geojson",
+            "Massachusetts": "massachusetts.geojson",
+            "New Mexico": "new_mexico.geojson",
+            "Oklahoma": "oklahoma.geojson",
+            "North Dakota": "north_dakota.geojson",
+            "Arizona": "arizona.geojson",
+            "New York": "new_york.geojson",
+            "Kentucky": "kentucky.geojson",
+            "Kansas": "kansas.geojson",
+            "South Dakota": "south_dakota.geojson",
+            "Pennsylvania": "pennsylvania.geojson",
+            "Florida": "florida.geojson",
+            "Washington": "washington.geojson",
+            "Idaho": "idaho.geojson",
+            "Colorado": "colorado.geojson",
+            "Georgia": "georgia.geojson",
+            "Wyoming": "wyoming.geojson",
+            "Montana": "montana.geojson",
+            "Tennessee": "tennessee.geojson",
+            "Wisconsin": "wisconsin.geojson",
+            "Ohio": "ohio.geojson",
+            "Michigan": "michigan.geojson",
+            "Alabama": "alabama.geojson",
+            "Maine": "maine.geojson",
+            "New Hampshire": "new_hampshire.geojson",
+            "Utah": "utah.geojson",
+            "District of Columbia": "district_of_columbia.geojson",
+            "Virginia": "virginia.geojson",
+            "Indiana": "indiana.geojson",
+            "South Carolina": "south_carolina.geojson",
+            "Mississippi": "mississippi.geojson",
+            "West Virginia": "west_virginia.geojson",
+            "Delaware": "delaware.geojson",
+            "North Carolina": "north_carolina.geojson",
+            "Louisiana": "louisiana.geojson",
+            "Nevada": "nevada.geojson",
+            "Nebraska": "nebraska.geojson",
+            "Connecticut": "connecticut.geojson",
+            "Maryland": "maryland.geojson",
+            "Vermont": "vermont.geojson",
+            "Rhode Island": "rhode_island.geojson"
+        };
+        
+        const countryGeojsonMap = {
+            "Australia": "australia.json",
+            "Belgium": "belgium.json",
+            "Brazil": "brazil.json",
+            "Bulgaria": "bulgaria.json",
+            "Canada": "canada.json",
+            "China": "china.json",
+            "Colombia": "colombia.json",
+            "Croatia": "croatia.json",
+            "Denmark": "denmark.json",
+            "Ecuador": "ecuador.json",
+            "France": "france.json",
+            "Germany": "germany.json",
+            "Greece": "greece.json",
+            "Guatemala": "guatemala.json",
+            "Hungary": "hungary.json",
+            "India": "india.json",
+            "Indonesia": "indonesia.json",
+            "Ireland": "ireland.json",
+            "Italy": "italy.json",
+            "Japan": "japan.json",
+            "Latvia": "latvia.json",
+            "Lithuania": "lithuania.json",
+            "Mexico": "mexico.json",
+            "Netherlands": "netherlands.json",
+            "New Zealand": "new_zealand.json",
+            "Norway": "norway.json",
+            "Poland": "poland.json",
+            "Portugal": "portugal.json",
+            "Romania": "romania.json",
+            "Russia": "russia.json",
+            "Slovenia": "slovenia.json",
+            "Spain": "spain.json",
+            "Sweden": "sweden.json",
+            "Switzerland": "switzerland.json",
+            "Türkiye": "turkey.json",
+            "United Kingdom": "united_kingdom.json"
+        };
+        
+        
+        async function loadData() {
+            try {
+                const response = await fetch('data.json');
+                photoData = await response.json();
+                initializeFilters();
+                
+                // Check if there's a hash in the URL to load
+                const hash = window.location.hash;
+                if (hash && hash.length > 1) {
+                    parseAndLoadHash(hash.substring(1));
+                } else {
+                    // Load first available location
+                    const firstState = [...new Set(photoData.filter(p => p.location_state).map(p => p.location_state))][0];
+                    if (firstState) {
+                        loadLocation(firstState, 'state');
+                    } else {
+                        const firstCountry = [...new Set(photoData.filter(p => p.location_country && p.location_country !== 'USA').map(p => p.location_country))][0];
+                        if (firstCountry) {
+                            loadLocation(firstCountry, 'country');
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading data:', error);
+            }
+        }
+        
+        function parseAndLoadHash(hash, fromHashChange = false) {
+            // Parse hash format: state/StateName or country/CountryName or photo/photoId
+            const parts = hash.split('/');
+            if (parts.length >= 2) {
+                const type = parts[0];
+                const value = decodeURIComponent(parts.slice(1).join('/'));
+                
+                if (type === 'state') {
+                    loadLocation(value, 'state', fromHashChange);
+                } else if (type === 'country') {
+                    loadLocation(value, 'country', fromHashChange);
+                } else if (type === 'photo' && parts.length >= 2) {
+                    // Find and load the photo
+                    const photoId = value;
+                    const photo = photoData.find(p => p.photo_id === photoId);
+                    if (photo) {
+                        // First load the location for context
+                        if (photo.location_state) {
+                            loadLocation(photo.location_state, 'state', fromHashChange).then(() => {
+                                // Then display the specific photo
+                                setTimeout(() => {
+                                    const photoElement = document.querySelector(`.photo-thumb[data-photo-id="${photoId}"]`);
+                                    if (photoElement) {
+                                        photoElement.click();
+                                    }
+                                }, 100);
+                            });
+                        } else if (photo.location_country && photo.location_country !== 'USA') {
+                            loadLocation(photo.location_country, 'country', fromHashChange).then(() => {
+                                setTimeout(() => {
+                                    const photoElement = document.querySelector(`.photo-thumb[data-photo-id="${photoId}"]`);
+                                    if (photoElement) {
+                                        photoElement.click();
+                                    }
+                                }, 100);
+                            });
+                        }
+                    }
+                }
+            }
+        }
+        
+        // Listen for hash changes (browser back/forward)
+        window.addEventListener('hashchange', () => {
+            if (!isUpdatingHash) {
+                const hash = window.location.hash;
+                if (hash && hash.length > 1) {
+                    parseAndLoadHash(hash.substring(1), true);
+                }
+            }
+        })
+        
+        function initializeFilters() {
+            const states = [...new Set(photoData.filter(p => p.location_state).map(p => p.location_state))].sort();
+            const countries = [...new Set(photoData.filter(p => p.location_country && p.location_country !== 'USA').map(p => p.location_country))].sort();
+            
+            const statesList = document.getElementById('states-list');
+            states.forEach(state => {
+                const li = document.createElement('li');
+                li.textContent = state;
+                li.onclick = () => loadLocation(state, 'state');
+                statesList.appendChild(li);
+            });
+            
+            const countriesList = document.getElementById('countries-list');
+            countries.forEach(country => {
+                const li = document.createElement('li');
+                li.textContent = country;
+                li.onclick = () => loadLocation(country, 'country');
+                countriesList.appendChild(li);
+            });
+            
+            document.getElementById('toggle-filters').onclick = () => {
+                document.getElementById('filters').classList.toggle('collapsed');
+            };
+            
+            // Auto-expand filters on hover
+            const filtersContainer = document.getElementById('filters');
+            const headerContainer = document.getElementById('header');
+            
+            headerContainer.addEventListener('mouseenter', () => {
+                filtersContainer.classList.remove('collapsed');
+            });
+            
+            headerContainer.addEventListener('mouseleave', () => {
+                filtersContainer.classList.add('collapsed');
+            });
+            
+            // Setup About button
+            document.getElementById('about-button').onclick = () => {
+                document.getElementById('about-modal').classList.add('active');
+            };
+            
+            // Close modal when clicking outside
+            document.getElementById('about-modal').onclick = (event) => {
+                if (event.target === event.currentTarget) {
+                    event.currentTarget.classList.remove('active');
+                }
+            };
+        }
+        
+        async function loadLocation(location, type, fromHashChange = false) {
+            currentLocation = location;
+            
+            // Update URL hash only if not coming from a hash change event
+            if (!fromHashChange) {
+                isUpdatingHash = true;
+                window.location.hash = `${type}/${encodeURIComponent(location)}`;
+                setTimeout(() => { isUpdatingHash = false; }, 0);
+            }
+            
+            // Update active filter
+            document.querySelectorAll('.filter-list li').forEach(li => {
+                li.classList.remove('active');
+                if (li.textContent === location) {
+                    li.classList.add('active');
+                }
+            });
+            
+            // Collapse filters after selection
+            document.getElementById('filters').classList.add('collapsed');
+            
+            // Filter photos for this location
+            const locationPhotos = type === 'state' 
+                ? photoData.filter(p => p.location_state === location)
+                : photoData.filter(p => p.location_country === location && p.location_country !== 'USA');
+            
+            // Update location info
+            document.getElementById('location-name').textContent = location;
+            document.getElementById('location-count').textContent = `${locationPhotos.length} photo${locationPhotos.length !== 1 ? 's' : ''}`;
+            
+            // Draw location shape
+            drawLocationShape(location, type, locationPhotos);
+            
+            // Display photos
+            displayPhotos(locationPhotos);
+            
+            return Promise.resolve();
+        }
+        
+        async function drawLocationShape(location, type, photos) {
+            const svg = d3.select('#shape-svg');
+            const width = 300;
+            const height = 300;
+            
+            // Clear existing shape
+            svg.selectAll('*').remove();
+            
+            // Remove any existing tooltips
+            d3.selectAll('.map-tooltip').remove();
+            
+            // Set SVG dimensions
+            svg.attr('width', width)
+               .attr('height', height)
+               .attr('viewBox', `0 0 ${width} ${height}`);
+            
+            // Determine geojson file path
+            let geojsonPath;
+            if (type === 'state') {
+                const filename = stateGeojsonMap[location];
+                if (filename) {
+                    geojsonPath = `geojson/usa/${filename}`;
+                }
+            } else {
+                const filename = countryGeojsonMap[location];
+                if (filename) {
+                    geojsonPath = `geojson/countries/${filename}`;
+                }
+            }
+            
+            if (!geojsonPath) {
+                console.error('No geojson file found for', location);
+                return;
+            }
+            
+            try {
+                const geojsonData = await d3.json(geojsonPath);
+                
+                // Debug the loaded data
+                console.log(`Loaded ${location}:`, {
+                    type: geojsonData.type,
+                    hasGeometry: !!geojsonData.geometry,
+                    geometryType: geojsonData.geometry?.type,
+                    coordinatesDepth: geojsonData.geometry?.coordinates?.length,
+                    firstCoordLength: geojsonData.geometry?.coordinates?.[0]?.length,
+                    sampleCoord: geojsonData.geometry?.coordinates?.[0]?.[0],
+                    bounds: d3.geoBounds(geojsonData)
+                });
+                
+         
+                
+                
+                // Create projection that properly fits the shape
+                var projection = d3.geoMercator()
+
+                projection.fitSize([width - 20, height - 20], geojsonData);
+
+                
+                const path = d3.geoPath().projection(projection);
+                
+                // Create a group for the transform
+                const g = svg.append('g')
+                    .attr('transform', `translate(10, 10)`);
+                
+                // Store current zoom level
+                let currentZoom = 1;
+                
+                // Create zoom behavior
+                const zoom = d3.zoom()
+                    .scaleExtent([1, 20])
+                    .on('zoom', (event) => {
+                        g.attr('transform', `translate(10, 10) ${event.transform}`);
+                        currentZoom = event.transform.k;
+                        
+                        // Scale dots inversely with zoom to maintain visual size
+                        const scaledRadius = 2 / Math.sqrt(currentZoom);
+                        g.selectAll('.photo-dot')
+                            .attr('r', scaledRadius);
+                    });
+                
+                // Apply zoom behavior to SVG
+                svg.call(zoom);
+                
+                // Draw the shape - handle both Feature and FeatureCollection
+                const features = geojsonData.type === 'FeatureCollection' 
+                    ? geojsonData.features 
+                    : [geojsonData];
+                
+                g.selectAll('path')
+                    .data(features)
+                    .enter()
+                    .append('path')
+                    .attr('d', path)
+                    .style('fill', 'none')
+                    .style('stroke', '#000')
+                    .style('stroke-width', '1px')
+                    .style('stroke-opacity', '0.5');
+                
+                // Add photo locations as dots
+                const validPhotos = photos.filter(p => {
+                    const lat = p.latitude_from_expanded || p.latitude;
+                    const lon = p.longitude_from_expanded || p.longitude;
+                    return lat && lon;
+                });
+                
+                // Create a tooltip element
+                const tooltip = d3.select('body').append('div')
+                    .attr('class', 'map-tooltip')
+                    .style('position', 'absolute')
+                    .style('visibility', 'hidden')
+                    .style('background', 'rgba(0, 0, 0, 0.9)')
+                    .style('color', 'white')
+                    .style('padding', '5px 10px')
+                    .style('border-radius', '3px')
+                    .style('font-size', '12px')
+                    .style('pointer-events', 'none')
+                    .style('z-index', '1000')
+                    .style('max-width', '300px')
+                    .style('word-wrap', 'break-word');
+                
+                g.selectAll('.photo-dot')
+                    .data(validPhotos)
+                    .enter()
+                    .append('circle')
+                    .attr('class', 'photo-dot')
+                    .attr('cx', d => {
+                        console.log(d)
+                        const lon = d.longitude_from_expanded || d.longitude;
+                        const lat = d.latitude_from_expanded || d.latitude;
+                        const coords = projection([lon, lat]);
+                        return coords ? coords[0] : 0;
+                    })
+                    .attr('cy', d => {
+                        const lat = d.latitude_from_expanded || d.latitude;
+                        const lon = d.longitude_from_expanded || d.longitude;
+                        const coords = projection([lon, lat]);
+                        return coords ? coords[1] : 0;
+                    })
+                    .attr('r', 2 / Math.sqrt(currentZoom))
+                    .style('fill', '#ff0000')
+                    .style('opacity', 0.7)
+                    .style('cursor', 'pointer')
+                    .on('mouseover', function(event, d) {
+                        // Show tooltip
+                        tooltip.style('visibility', 'visible')
+                            .text(d.title);
+                        
+                        // Make the dot slightly larger on hover, adjusted for zoom
+                        const baseRadius = 2 / Math.sqrt(currentZoom);
+                        const hoverRadius = Math.min(baseRadius * 2, 4 / Math.sqrt(currentZoom));
+                        d3.select(this)
+                            .transition()
+                            .duration(100)
+                            .attr('r', hoverRadius)
+                            .style('opacity', 1);
+                    })
+                    .on('mousemove', function(event) {
+                        // Move tooltip with mouse
+                        tooltip.style('top', (event.pageY - 30) + 'px')
+                            .style('left', (event.pageX + 10) + 'px');
+                    })
+                    .on('mouseout', function() {
+                        // Hide tooltip
+                        tooltip.style('visibility', 'hidden');
+                        
+                        // Return dot to normal size, adjusted for zoom
+                        const normalRadius = 2 / Math.sqrt(currentZoom);
+                        d3.select(this)
+                            .transition()
+                            .duration(100)
+                            .attr('r', normalRadius)
+                            .style('opacity', 0.7);
+                    })
+                    .on('click', function(event, d) {
+                        // Find and click the corresponding photo thumbnail
+                        const photoElement = document.querySelector(`.photo-thumb[data-photo-id="${d.photo_id}"]`);
+                        if (photoElement) {
+                            photoElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            photoElement.click();
+                        }
+                    });
+                    
+            } catch (error) {
+                console.error('Error loading geojson for shape:', error);
+            }
+        }
+        
+        function displayPhotos(photos) {
+            const grid = document.getElementById('photo-grid');
+            grid.innerHTML = '';
+            
+            photos.forEach((photo, index) => {
+                const thumb = document.createElement('div');
+                thumb.className = 'photo-thumb';
+                thumb.setAttribute('data-photo-id', photo.photo_id);
+                
+                const hdlId = photo.hdl_url ? photo.hdl_url.split('/').pop() : '';
+                const imgPath = `img/${hdlId}.jpg`;
+                
+                thumb.innerHTML = `<img src="${imgPath}" alt="${photo.title}" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22><rect width=%22300%22 height=%22300%22 fill=%22%23f0f0f0%22/><text x=%2250%%22 y=%2250%%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22 font-family=%22sans-serif%22>Image not found</text></svg>'">`;
+                
+                thumb.onclick = () => showDetail(photo, index);
+                grid.appendChild(thumb);
+            });
+        }
+        
+        function showDetail(photo, index) {
+            // Always update URL hash to include photo ID
+            isUpdatingHash = true;
+            window.location.hash = `photo/${photo.photo_id}`;
+            setTimeout(() => { isUpdatingHash = false; }, 0);
+            
+            // Close any existing detail view
+            if (activeDetailView) {
+                activeDetailView.remove();
+            }
+            
+            const hdlId = photo.hdl_url ? photo.hdl_url.split('/').pop() : '';
+            const imgPath = `img/${hdlId}.jpg`;
+            
+            // Create detail view
+            const detailView = document.createElement('div');
+            detailView.className = 'detail-view active';
+            
+            // Parse street view parameters
+            let streetViewEmbed = '';
+            if (photo.google_maps_url_expanded) {
+                // Updated regex to handle decimal points in all parameters
+                const match = photo.google_maps_url_expanded.match(/@(-?\d+\.?\d*),(-?\d+\.?\d*),\d*\.?\d*a,(\d+\.?\d*)y,(-?\d+\.?\d*)h,(-?\d+\.?\d*)t/);
+                if (match) {
+                    const [_, lat, lng, fov, heading, pitch] = match;
+                    streetViewEmbed = `
+                        <iframe 
+                            src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&location=${lat},${lng}&heading=${heading}&pitch=0&fov=${fov}"
+                            allowfullscreen>
+                        </iframe>
+                    `;
+                }
+            } 
+            
+            // If no expanded URL, try to extract from regular google_maps_url
+            if (!streetViewEmbed && photo.google_maps_url) {
+                const match = photo.google_maps_url.match(/@(-?\d+\.?\d*),(-?\d+\.?\d*),\d*\.?\d*a,(\d+\.?\d*)y,(-?\d+\.?\d*)h,(-?\d+\.?\d*)t/);
+                if (match) {
+                    const [_, lat, lng, fov, heading, pitch] = match;
+                    streetViewEmbed = `
+                        <iframe 
+                            src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&location=${lat},${lng}&heading=${heading}&pitch=0&fov=${fov}"
+                            allowfullscreen>
+                        </iframe>
+                    `;
+                }
+            }
+            
+            // Fall back to using coordinates if available
+            if (!streetViewEmbed && (photo.latitude_from_expanded && photo.longitude_from_expanded)) {
+                streetViewEmbed = `
+                    <iframe 
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&location=${photo.latitude_from_expanded},${photo.longitude_from_expanded}"
+                        allowfullscreen>
+                    </iframe>
+                `;
+            }
+            
+            // Final fallback to basic coordinates
+            if (!streetViewEmbed && photo.latitude && photo.longitude) {
+                streetViewEmbed = `
+                    <iframe 
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&location=${photo.latitude},${photo.longitude}"
+                        allowfullscreen>
+                    </iframe>
+                `;
+            }
+            
+            detailView.innerHTML = `
+                <div class="detail-content">
+                    <div class="detail-image">
+                        <img src="${imgPath}" alt="${photo.title}" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22400%22><rect width=%22600%22 height=%22400%22 fill=%22%23f0f0f0%22/><text x=%2250%%22 y=%2250%%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22 font-family=%22sans-serif%22>Image not found</text></svg>'">
+                    </div>
+                    <div class="street-view">
+                        ${streetViewEmbed || '<div style="padding: 20px; text-align: center; color: #999;">Street View not available</div>'}
+                    </div>
+                </div>
+                <div class="detail-info">
+                    <h3>${photo.title}</h3>
+                    <p><strong>Description:</strong> ${photo.description}</p>
+                    <p><strong>Comment:</strong> ${photo.comment_text}</p>
+                    <p><strong>Comment by:</strong> ${photo.comment_author}</p>
+                    <p><strong>Links:</strong> 
+                        <a href="${photo.hdl_url}" target="_blank">Library of Congress</a> | 
+                        <a href="${photo.comment_permalink}" target="_blank">Flickr Comment</a>
+                        ${photo.google_maps_url ? ` | <a href="${photo.google_maps_url}" target="_blank">Google Maps</a>` : ''}
+                    </p>
+                </div>
+            `;
+            
+            // Insert after the row containing this photo
+            const photoElements = Array.from(document.querySelectorAll('.photo-thumb'));
+            const rowIndex = Math.floor(index / 5);
+            const insertAfterIndex = Math.min((rowIndex + 1) * 5 - 1, photoElements.length - 1);
+            
+            if (photoElements[insertAfterIndex]) {
+                photoElements[insertAfterIndex].after(detailView);
+            } else {
+                document.getElementById('photo-grid').appendChild(detailView);
+            }
+            
+            activeDetailView = detailView;
+            
+            // Smooth scroll to center the detail view
+            setTimeout(() => {
+                const detailRect = detailView.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                const scrollTo = window.pageYOffset + detailRect.top + (detailRect.height / 2) - (windowHeight / 2);
+                
+                window.scrollTo({
+                    top: scrollTo,
+                    behavior: 'smooth'
+                });
+            }, 50); // Small delay to ensure DOM is updated
+        }
+        
+        // Close detail view when clicking outside
+        document.addEventListener('click', (event) => {
+            if (activeDetailView && 
+                !event.target.closest('.detail-view') && 
+                !event.target.closest('.photo-thumb') &&
+                !event.target.classList.contains('photo-dot')) {
+                activeDetailView.remove();
+                activeDetailView = null;
+                
+                // Restore location hash
+                if (currentLocation) {
+                    const locationType = photoData.find(p => p.location_state === currentLocation) ? 'state' : 'country';
+                    isUpdatingHash = true;
+                    window.location.hash = `${locationType}/${encodeURIComponent(currentLocation)}`;
+                    setTimeout(() => { isUpdatingHash = false; }, 0);
+                }
+            }
+        });
+        
+        // Initialize
+        loadData();
+    </script>
+</body>
+</html>

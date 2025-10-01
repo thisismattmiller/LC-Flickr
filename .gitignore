@@ -2,10 +2,21 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+apps/atlas/node_modules/
+apps/graph/node_modules/
+apps/viz_user_activity/node_modules/
+apps/viz_histogram/node_modules/
+data/statements/
+data/images/
+data/*
+data/marc_files_from_search/
+data/lc_catalog_scrape/
+data/loc_marc_search_results/
+!data/flickr_photos_with_metadata_comments.json.gz
 # C extensions
 *.so
-
+apps/graph/public/photos/
+.DS_Store
 # Distribution / packaging
 .Python
 build/

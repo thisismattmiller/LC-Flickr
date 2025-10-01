@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Activity Analysis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: transparent;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            background: transparent;
+            padding: 0;
+        }
+
+        h1 {
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 22px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+
+        .controls {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .control-group {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        label {
+            font-weight: 500;
+            color: #555;
+            font-size: 14px;
+        }
+
+        select, input[type="radio"] {
+            cursor: pointer;
+        }
+
+        select {
+            padding: 6px 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            background: white;
+        }
+
+        select:hover {
+            border-color: #999;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #0066ff;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: normal;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin-top: 12px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #eee;
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .stat-value {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .highlight {
+            background: #fffbea;
+            padding: 12px;
+            border-radius: 4px;
+            margin-top: 16px;
+            border-left: 3px solid #f59e0b;
+        }
+
+        .highlight-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #92400e;
+            margin-bottom: 4px;
+        }
+
+        .highlight-text {
+            font-size: 13px;
+            color: #78350f;
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 18px;
+            }
+
+            .subtitle {
+                font-size: 13px;
+            }
+
+            .chart-container {
+                height: 300px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .stat-value {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Activity Distribution</h1>
+        <p class="subtitle">Analyzing the concentration of tags, comments, and notes among users</p>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="activityType">Activity Type:</label>
+                <select id="activityType">
+                    <option value="comments">Comments</option>
+                    <option value="tags">Tags</option>
+                    <option value="notes">Notes</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label>View:</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="viewType" value="pareto" checked>
+                        Pareto Chart
+                    </label>
+                    <label>
+                        <input type="radio" name="viewType" value="top20">
+                        Top 20 Users
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="chart"></canvas>
+        </div>
+
+        <div id="highlight" class="highlight">
+            <div class="highlight-title">80/20 Rule</div>
+            <div class="highlight-text" id="highlightText"></div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat">
+                <div class="stat-label">Total Users</div>
+                <div class="stat-value" id="totalUsers">-</div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">Total Activity</div>
+                <div class="stat-value" id="totalActivity">-</div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">Average per User</div>
+                <div class="stat-value" id="avgActivity">-</div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">Median Activity</div>
+                <div class="stat-value" id="medianActivity">-</div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+</body>
+</html>

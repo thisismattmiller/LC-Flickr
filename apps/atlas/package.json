@@ -1,0 +1,24 @@
+{
+  "name": "atlas",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "process-data": "node scripts/process-data.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@uwdata/mosaic-core": "^0.18.0",
+    "@uwdata/mosaic-sql": "^0.18.0",
+    "embedding-atlas": "^0.8.0"
+  },
+  "devDependencies": {
+    "vite": "^7.1.4"
+  }
+}
