@@ -1,4 +1,3 @@
-# flickr-lc-comments
 
 ## Scripts
 
