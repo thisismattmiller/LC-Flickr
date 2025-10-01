@@ -1,5 +1,5 @@
 import { Node, Edge, GraphData } from './types';
-import { asyncBufferFromUrl, parquetReadObjects } from 'hyparquet';
+import { parquetReadObjects } from 'hyparquet';
 
 export class DataLoader {
   async loadParquet(url: string): Promise<GraphData> {
@@ -36,8 +36,23 @@ export class DataLoader {
 
       // Now load the file using the working URL
       console.log(`Attempting to load parquet from: ${workingUrl}`);
-      file = await asyncBufferFromUrl({ url: workingUrl });
-      console.log(`Successfully loaded from: ${workingUrl}`);
+
+      // Fetch the entire file as ArrayBuffer first
+      const response = await fetch(workingUrl);
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+      const arrayBuffer = await response.arrayBuffer();
+      console.log(`Successfully loaded ${arrayBuffer.byteLength} bytes from: ${workingUrl}`);
+
+      // Create async buffer interface for hyparquet
+      file = {
+        byteLength: arrayBuffer.byteLength,
+        slice: async (start: number, end?: number) => {
+          return arrayBuffer.slice(start, end);
+        }
+      };
+      console.log(`Created buffer with ${file.byteLength} bytes`);
       
       // Read all objects from the Parquet file
       const data = await parquetReadObjects({
