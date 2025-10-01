@@ -12,22 +12,32 @@ export class DataLoader {
 
       let file;
       let lastError;
+      let workingUrl;
 
+      // First check which URL actually exists with a HEAD request
       for (const tryUrl of urls) {
         try {
-          console.log(`Attempting to load parquet from: ${tryUrl}`);
-          file = await asyncBufferFromUrl({ url: tryUrl });
-          console.log(`Successfully loaded from: ${tryUrl}`);
-          break;
+          console.log(`Checking availability of: ${tryUrl}`);
+          const headResponse = await fetch(tryUrl, { method: 'HEAD' });
+          if (headResponse.ok) {
+            console.log(`Found parquet file at: ${tryUrl}`);
+            workingUrl = tryUrl;
+            break;
+          }
         } catch (error) {
-          console.warn(`Failed to load from ${tryUrl}:`, error);
+          console.warn(`HEAD request failed for ${tryUrl}:`, error);
           lastError = error;
         }
       }
 
-      if (!file) {
-        throw lastError || new Error('Failed to load parquet file from all attempted URLs');
+      if (!workingUrl) {
+        throw lastError || new Error('Failed to find parquet file at any attempted URLs');
       }
+
+      // Now load the file using the working URL
+      console.log(`Attempting to load parquet from: ${workingUrl}`);
+      file = await asyncBufferFromUrl({ url: workingUrl });
+      console.log(`Successfully loaded from: ${workingUrl}`);
       
       // Read all objects from the Parquet file
       const data = await parquetReadObjects({
