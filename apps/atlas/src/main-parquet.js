@@ -31,8 +31,8 @@ async function loadData() {
         // Load the parquet file into a table named 'comments'
         await coordinator().exec([
             loadParquet(
-                "comments", 
-                `${window.location.origin}/data/data.parquet`
+                "comments",
+                new URL('/data/data.parquet', window.location.href).href
             )
         ]);
         
