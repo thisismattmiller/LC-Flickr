@@ -21,7 +21,6 @@ apps/graph/public/photos/
 .Python
 build/
 develop-eggs/
-dist/
 downloads/
 eggs/
 .eggs/

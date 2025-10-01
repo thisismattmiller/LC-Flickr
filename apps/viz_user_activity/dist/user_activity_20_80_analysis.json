@@ -1,0 +1,1786 @@
+{
+  "analysis_date": "Sun Sep  7 19:23:00 EDT 2025",
+  "total_photos": 43219,
+  "tags": {
+    "activity_type": "tags",
+    "total_users": 4297,
+    "total_activities": 266320,
+    "average_per_user": 61.98,
+    "median_activities": 3,
+    "breakpoints": {
+      "users_for_10pct_activity": {
+        "user_count": 1,
+        "user_percentage": 0.02,
+        "activity_percentage": 10
+      },
+      "users_for_20pct_activity": {
+        "user_count": 1,
+        "user_percentage": 0.02,
+        "activity_percentage": 20
+      },
+      "users_for_30pct_activity": {
+        "user_count": 2,
+        "user_percentage": 0.05,
+        "activity_percentage": 30
+      },
+      "users_for_40pct_activity": {
+        "user_count": 3,
+        "user_percentage": 0.07,
+        "activity_percentage": 40
+      },
+      "users_for_50pct_activity": {
+        "user_count": 5,
+        "user_percentage": 0.12,
+        "activity_percentage": 50
+      },
+      "users_for_60pct_activity": {
+        "user_count": 7,
+        "user_percentage": 0.16,
+        "activity_percentage": 60
+      },
+      "users_for_70pct_activity": {
+        "user_count": 13,
+        "user_percentage": 0.3,
+        "activity_percentage": 70
+      },
+      "users_for_80pct_activity": {
+        "user_count": 43,
+        "user_percentage": 1.0,
+        "activity_percentage": 80
+      },
+      "users_for_90pct_activity": {
+        "user_count": 222,
+        "user_percentage": 5.17,
+        "activity_percentage": 90
+      },
+      "users_for_95pct_activity": {
+        "user_count": 681,
+        "user_percentage": 15.85,
+        "activity_percentage": 95
+      },
+      "users_for_99pct_activity": {
+        "user_count": 2419,
+        "user_percentage": 56.3,
+        "activity_percentage": 99
+      }
+    },
+    "top_20_users": [
+      {
+        "rank": 1,
+        "user": "TVL1970",
+        "count": 70842,
+        "percentage": 26.6
+      },
+      {
+        "rank": 2,
+        "user": "pennylrichardsca (now at ipernity)",
+        "count": 26344,
+        "percentage": 9.89
+      },
+      {
+        "rank": 3,
+        "user": "artolog",
+        "count": 18277,
+        "percentage": 6.86
+      },
+      {
+        "rank": 4,
+        "user": "neshachan",
+        "count": 17471,
+        "percentage": 6.56
+      },
+      {
+        "rank": 5,
+        "user": "optimal salt",
+        "count": 11726,
+        "percentage": 4.4
+      },
+      {
+        "rank": 6,
+        "user": "Pixel Wrangler",
+        "count": 9541,
+        "percentage": 3.58
+      },
+      {
+        "rank": 7,
+        "user": "Harry Angstrom",
+        "count": 6880,
+        "percentage": 2.58
+      },
+      {
+        "rank": 8,
+        "user": "Marshall Astor - Food Fetishist",
+        "count": 5544,
+        "percentage": 2.08
+      },
+      {
+        "rank": 9,
+        "user": "Emily Barney",
+        "count": 4872,
+        "percentage": 1.83
+      },
+      {
+        "rank": 10,
+        "user": "In Memoriam: Wystan",
+        "count": 4807,
+        "percentage": 1.8
+      },
+      {
+        "rank": 11,
+        "user": "swanq",
+        "count": 3957,
+        "percentage": 1.49
+      },
+      {
+        "rank": 12,
+        "user": "Richard Arthur Norton  (1958- )",
+        "count": 3534,
+        "percentage": 1.33
+      },
+      {
+        "rank": 13,
+        "user": "Jellibat",
+        "count": 3218,
+        "percentage": 1.21
+      },
+      {
+        "rank": 14,
+        "user": "Infrogmation",
+        "count": 1713,
+        "percentage": 0.64
+      },
+      {
+        "rank": 15,
+        "user": "Deb Malewski",
+        "count": 1601,
+        "percentage": 0.6
+      },
+      {
+        "rank": 16,
+        "user": "Eric Hunt.",
+        "count": 1581,
+        "percentage": 0.59
+      },
+      {
+        "rank": 17,
+        "user": "Eric Schmeric",
+        "count": 1365,
+        "percentage": 0.51
+      },
+      {
+        "rank": 18,
+        "user": "mak1173",
+        "count": 1273,
+        "percentage": 0.48
+      },
+      {
+        "rank": 19,
+        "user": "Vidiot",
+        "count": 1177,
+        "percentage": 0.44
+      },
+      {
+        "rank": 20,
+        "user": "Film&PhotoArchivist",
+        "count": 1050,
+        "percentage": 0.39
+      }
+    ],
+    "distribution_sample": [
+      {
+        "user": "TVL1970",
+        "activity_count": 70842,
+        "user_rank": 1,
+        "user_percentage": 0.02,
+        "cumulative_activity_percentage": 26.6
+      },
+      {
+        "user": "pennylrichardsca (now at ipernity)",
+        "activity_count": 26344,
+        "user_rank": 2,
+        "user_percentage": 0.05,
+        "cumulative_activity_percentage": 36.49
+      },
+      {
+        "user": "artolog",
+        "activity_count": 18277,
+        "user_rank": 3,
+        "user_percentage": 0.07,
+        "cumulative_activity_percentage": 43.35
+      },
+      {
+        "user": "neshachan",
+        "activity_count": 17471,
+        "user_rank": 4,
+        "user_percentage": 0.09,
+        "cumulative_activity_percentage": 49.92
+      },
+      {
+        "user": "optimal salt",
+        "activity_count": 11726,
+        "user_rank": 5,
+        "user_percentage": 0.12,
+        "cumulative_activity_percentage": 54.32
+      },
+      {
+        "user": "Pixel Wrangler",
+        "activity_count": 9541,
+        "user_rank": 6,
+        "user_percentage": 0.14,
+        "cumulative_activity_percentage": 57.9
+      },
+      {
+        "user": "Harry Angstrom",
+        "activity_count": 6880,
+        "user_rank": 7,
+        "user_percentage": 0.16,
+        "cumulative_activity_percentage": 60.48
+      },
+      {
+        "user": "Marshall Astor - Food Fetishist",
+        "activity_count": 5544,
+        "user_rank": 8,
+        "user_percentage": 0.19,
+        "cumulative_activity_percentage": 62.57
+      },
+      {
+        "user": "Emily Barney",
+        "activity_count": 4872,
+        "user_rank": 9,
+        "user_percentage": 0.21,
+        "cumulative_activity_percentage": 64.4
+      },
+      {
+        "user": "In Memoriam: Wystan",
+        "activity_count": 4807,
+        "user_rank": 10,
+        "user_percentage": 0.23,
+        "cumulative_activity_percentage": 66.2
+      },
+      {
+        "user": "swanq",
+        "activity_count": 3957,
+        "user_rank": 11,
+        "user_percentage": 0.26,
+        "cumulative_activity_percentage": 67.69
+      },
+      {
+        "user": "Richard Arthur Norton  (1958- )",
+        "activity_count": 3534,
+        "user_rank": 12,
+        "user_percentage": 0.28,
+        "cumulative_activity_percentage": 69.01
+      },
+      {
+        "user": "Jellibat",
+        "activity_count": 3218,
+        "user_rank": 13,
+        "user_percentage": 0.3,
+        "cumulative_activity_percentage": 70.22
+      },
+      {
+        "user": "Infrogmation",
+        "activity_count": 1713,
+        "user_rank": 14,
+        "user_percentage": 0.33,
+        "cumulative_activity_percentage": 70.86
+      },
+      {
+        "user": "Deb Malewski",
+        "activity_count": 1601,
+        "user_rank": 15,
+        "user_percentage": 0.35,
+        "cumulative_activity_percentage": 71.47
+      },
+      {
+        "user": "Eric Hunt.",
+        "activity_count": 1581,
+        "user_rank": 16,
+        "user_percentage": 0.37,
+        "cumulative_activity_percentage": 72.06
+      },
+      {
+        "user": "Eric Schmeric",
+        "activity_count": 1365,
+        "user_rank": 17,
+        "user_percentage": 0.4,
+        "cumulative_activity_percentage": 72.57
+      },
+      {
+        "user": "mak1173",
+        "activity_count": 1273,
+        "user_rank": 18,
+        "user_percentage": 0.42,
+        "cumulative_activity_percentage": 73.05
+      },
+      {
+        "user": "Vidiot",
+        "activity_count": 1177,
+        "user_rank": 19,
+        "user_percentage": 0.44,
+        "cumulative_activity_percentage": 73.49
+      },
+      {
+        "user": "Film&PhotoArchivist",
+        "activity_count": 1050,
+        "user_rank": 20,
+        "user_percentage": 0.47,
+        "cumulative_activity_percentage": 73.89
+      },
+      {
+        "user": "Valerie Reneé",
+        "activity_count": 1027,
+        "user_rank": 21,
+        "user_percentage": 0.49,
+        "cumulative_activity_percentage": 74.27
+      },
+      {
+        "user": "captainslack",
+        "activity_count": 988,
+        "user_rank": 22,
+        "user_percentage": 0.51,
+        "cumulative_activity_percentage": 74.64
+      },
+      {
+        "user": "luc 5",
+        "activity_count": 937,
+        "user_rank": 23,
+        "user_percentage": 0.54,
+        "cumulative_activity_percentage": 74.99
+      },
+      {
+        "user": "Lú_",
+        "activity_count": 901,
+        "user_rank": 24,
+        "user_percentage": 0.56,
+        "cumulative_activity_percentage": 75.33
+      },
+      {
+        "user": "gonzaloh",
+        "activity_count": 841,
+        "user_rank": 25,
+        "user_percentage": 0.58,
+        "cumulative_activity_percentage": 75.65
+      },
+      {
+        "user": "T-Rav",
+        "activity_count": 825,
+        "user_rank": 26,
+        "user_percentage": 0.61,
+        "cumulative_activity_percentage": 75.96
+      },
+      {
+        "user": "George",
+        "activity_count": 798,
+        "user_rank": 27,
+        "user_percentage": 0.63,
+        "cumulative_activity_percentage": 76.26
+      },
+      {
+        "user": "Seuss.",
+        "activity_count": 772,
+        "user_rank": 28,
+        "user_percentage": 0.65,
+        "cumulative_activity_percentage": 76.55
+      },
+      {
+        "user": "whyaduck",
+        "activity_count": 768,
+        "user_rank": 29,
+        "user_percentage": 0.67,
+        "cumulative_activity_percentage": 76.84
+      },
+      {
+        "user": "daimoneklund",
+        "activity_count": 743,
+        "user_rank": 30,
+        "user_percentage": 0.7,
+        "cumulative_activity_percentage": 77.12
+      },
+      {
+        "user": "derekreeve",
+        "activity_count": 702,
+        "user_rank": 31,
+        "user_percentage": 0.72,
+        "cumulative_activity_percentage": 77.38
+      },
+      {
+        "user": "complete grain",
+        "activity_count": 698,
+        "user_rank": 32,
+        "user_percentage": 0.74,
+        "cumulative_activity_percentage": 77.64
+      },
+      {
+        "user": "quinn.anya",
+        "activity_count": 664,
+        "user_rank": 33,
+        "user_percentage": 0.77,
+        "cumulative_activity_percentage": 77.89
+      },
+      {
+        "user": "ninakuriloff",
+        "activity_count": 640,
+        "user_rank": 34,
+        "user_percentage": 0.79,
+        "cumulative_activity_percentage": 78.13
+      },
+      {
+        "user": "la-bella-quotidiano",
+        "activity_count": 608,
+        "user_rank": 35,
+        "user_percentage": 0.81,
+        "cumulative_activity_percentage": 78.36
+      },
+      {
+        "user": "djmark1972",
+        "activity_count": 597,
+        "user_rank": 36,
+        "user_percentage": 0.84,
+        "cumulative_activity_percentage": 78.58
+      },
+      {
+        "user": "tangledstrings",
+        "activity_count": 588,
+        "user_rank": 37,
+        "user_percentage": 0.86,
+        "cumulative_activity_percentage": 78.8
+      },
+      {
+        "user": "harthillsouth",
+        "activity_count": 575,
+        "user_rank": 38,
+        "user_percentage": 0.88,
+        "cumulative_activity_percentage": 79.02
+      },
+      {
+        "user": "*Mari*",
+        "activity_count": 550,
+        "user_rank": 39,
+        "user_percentage": 0.91,
+        "cumulative_activity_percentage": 79.23
+      },
+      {
+        "user": "historygradguy",
+        "activity_count": 544,
+        "user_rank": 40,
+        "user_percentage": 0.93,
+        "cumulative_activity_percentage": 79.43
+      },
+      {
+        "user": "Mjr Kool",
+        "activity_count": 541,
+        "user_rank": 41,
+        "user_percentage": 0.95,
+        "cumulative_activity_percentage": 79.63
+      },
+      {
+        "user": "rockcreek",
+        "activity_count": 528,
+        "user_rank": 42,
+        "user_percentage": 0.98,
+        "cumulative_activity_percentage": 79.83
+      },
+      {
+        "user": "Dendroica cerulea",
+        "activity_count": 501,
+        "user_rank": 43,
+        "user_percentage": 1.0,
+        "cumulative_activity_percentage": 80.02
+      },
+      {
+        "user": "klausness",
+        "activity_count": 491,
+        "user_rank": 44,
+        "user_percentage": 1.02,
+        "cumulative_activity_percentage": 80.2
+      },
+      {
+        "user": "eliotc",
+        "activity_count": 483,
+        "user_rank": 45,
+        "user_percentage": 1.05,
+        "cumulative_activity_percentage": 80.39
+      },
+      {
+        "user": "BobMeade",
+        "activity_count": 467,
+        "user_rank": 46,
+        "user_percentage": 1.07,
+        "cumulative_activity_percentage": 80.56
+      },
+      {
+        "user": "MorfuddNia",
+        "activity_count": 466,
+        "user_rank": 47,
+        "user_percentage": 1.09,
+        "cumulative_activity_percentage": 80.74
+      },
+      {
+        "user": "undeadsinatra",
+        "activity_count": 435,
+        "user_rank": 48,
+        "user_percentage": 1.12,
+        "cumulative_activity_percentage": 80.9
+      },
+      {
+        "user": "epicharmus",
+        "activity_count": 433,
+        "user_rank": 49,
+        "user_percentage": 1.14,
+        "cumulative_activity_percentage": 81.06
+      },
+      {
+        "user": "catb -",
+        "activity_count": 391,
+        "user_rank": 50,
+        "user_percentage": 1.16,
+        "cumulative_activity_percentage": 81.21
+      },
+      {
+        "user": "Andy961",
+        "activity_count": 371,
+        "user_rank": 51,
+        "user_percentage": 1.19,
+        "cumulative_activity_percentage": 81.35
+      },
+      {
+        "user": "Cynthia Wenslow",
+        "activity_count": 344,
+        "user_rank": 52,
+        "user_percentage": 1.21,
+        "cumulative_activity_percentage": 81.48
+      },
+      {
+        "user": "Equina27",
+        "activity_count": 341,
+        "user_rank": 53,
+        "user_percentage": 1.23,
+        "cumulative_activity_percentage": 81.61
+      },
+      {
+        "user": "perfgeek",
+        "activity_count": 334,
+        "user_rank": 54,
+        "user_percentage": 1.26,
+        "cumulative_activity_percentage": 81.73
+      },
+      {
+        "user": "steep spark",
+        "activity_count": 327,
+        "user_rank": 55,
+        "user_percentage": 1.28,
+        "cumulative_activity_percentage": 81.85
+      },
+      {
+        "user": "werth_julie",
+        "activity_count": 317,
+        "user_rank": 56,
+        "user_percentage": 1.3,
+        "cumulative_activity_percentage": 81.97
+      },
+      {
+        "user": "Dan4th",
+        "activity_count": 307,
+        "user_rank": 57,
+        "user_percentage": 1.33,
+        "cumulative_activity_percentage": 82.09
+      },
+      {
+        "user": "Richard Arthur Norton (1958- )",
+        "activity_count": 300,
+        "user_rank": 58,
+        "user_percentage": 1.35,
+        "cumulative_activity_percentage": 82.2
+      },
+      {
+        "user": "eloncom374",
+        "activity_count": 298,
+        "user_rank": 59,
+        "user_percentage": 1.37,
+        "cumulative_activity_percentage": 82.31
+      },
+      {
+        "user": "cma_decky",
+        "activity_count": 298,
+        "user_rank": 60,
+        "user_percentage": 1.4,
+        "cumulative_activity_percentage": 82.42
+      },
+      {
+        "user": "MN Photos",
+        "activity_count": 288,
+        "user_rank": 61,
+        "user_percentage": 1.42,
+        "cumulative_activity_percentage": 82.53
+      },
+      {
+        "user": "lynn roebuck photography",
+        "activity_count": 274,
+        "user_rank": 62,
+        "user_percentage": 1.44,
+        "cumulative_activity_percentage": 82.64
+      },
+      {
+        "user": "mnorri",
+        "activity_count": 273,
+        "user_rank": 63,
+        "user_percentage": 1.47,
+        "cumulative_activity_percentage": 82.74
+      },
+      {
+        "user": "bryankennedy",
+        "activity_count": 271,
+        "user_rank": 64,
+        "user_percentage": 1.49,
+        "cumulative_activity_percentage": 82.84
+      },
+      {
+        "user": "robot makes music",
+        "activity_count": 267,
+        "user_rank": 65,
+        "user_percentage": 1.51,
+        "cumulative_activity_percentage": 82.94
+      },
+      {
+        "user": "only1tanuki",
+        "activity_count": 266,
+        "user_rank": 66,
+        "user_percentage": 1.54,
+        "cumulative_activity_percentage": 83.04
+      },
+      {
+        "user": "Michael Wachel Photography",
+        "activity_count": 256,
+        "user_rank": 67,
+        "user_percentage": 1.56,
+        "cumulative_activity_percentage": 83.14
+      },
+      {
+        "user": "Carlin Joe",
+        "activity_count": 249,
+        "user_rank": 68,
+        "user_percentage": 1.58,
+        "cumulative_activity_percentage": 83.23
+      },
+      {
+        "user": "KaiserM715",
+        "activity_count": 247,
+        "user_rank": 69,
+        "user_percentage": 1.61,
+        "cumulative_activity_percentage": 83.32
+      },
+      {
+        "user": "Rob Ketcherside",
+        "activity_count": 242,
+        "user_rank": 70,
+        "user_percentage": 1.63,
+        "cumulative_activity_percentage": 83.41
+      },
+      {
+        "user": "uncovered knowledge",
+        "activity_count": 242,
+        "user_rank": 71,
+        "user_percentage": 1.65,
+        "cumulative_activity_percentage": 83.5
+      },
+      {
+        "user": "cjonthehudson",
+        "activity_count": 233,
+        "user_rank": 72,
+        "user_percentage": 1.68,
+        "cumulative_activity_percentage": 83.59
+      },
+      {
+        "user": "scott*eric",
+        "activity_count": 233,
+        "user_rank": 73,
+        "user_percentage": 1.7,
+        "cumulative_activity_percentage": 83.68
+      },
+      {
+        "user": "whatsthatpicture",
+        "activity_count": 229,
+        "user_rank": 74,
+        "user_percentage": 1.72,
+        "cumulative_activity_percentage": 83.76
+      },
+      {
+        "user": "alykat",
+        "activity_count": 228,
+        "user_rank": 75,
+        "user_percentage": 1.75,
+        "cumulative_activity_percentage": 83.85
+      },
+      {
+        "user": "iris.schimandle",
+        "activity_count": 228,
+        "user_rank": 76,
+        "user_percentage": 1.77,
+        "cumulative_activity_percentage": 83.94
+      },
+      {
+        "user": "motionless history",
+        "activity_count": 216,
+        "user_rank": 77,
+        "user_percentage": 1.79,
+        "cumulative_activity_percentage": 84.02
+      },
+      {
+        "user": "ComputerHotline",
+        "activity_count": 216,
+        "user_rank": 78,
+        "user_percentage": 1.82,
+        "cumulative_activity_percentage": 84.1
+      },
+      {
+        "user": "trialsanderrors",
+        "activity_count": 208,
+        "user_rank": 79,
+        "user_percentage": 1.84,
+        "cumulative_activity_percentage": 84.18
+      },
+      {
+        "user": "James Mundie",
+        "activity_count": 205,
+        "user_rank": 80,
+        "user_percentage": 1.86,
+        "cumulative_activity_percentage": 84.25
+      },
+      {
+        "user": "This Way to Infinity",
+        "activity_count": 201,
+        "user_rank": 81,
+        "user_percentage": 1.89,
+        "cumulative_activity_percentage": 84.33
+      },
+      {
+        "user": "Purrrpl_Haze",
+        "activity_count": 197,
+        "user_rank": 82,
+        "user_percentage": 1.91,
+        "cumulative_activity_percentage": 84.4
+      },
+      {
+        "user": "kayoteq",
+        "activity_count": 196,
+        "user_rank": 83,
+        "user_percentage": 1.93,
+        "cumulative_activity_percentage": 84.48
+      },
+      {
+        "user": "cgkinla",
+        "activity_count": 192,
+        "user_rank": 84,
+        "user_percentage": 1.95,
+        "cumulative_activity_percentage": 84.55
+      },
+      {
+        "user": "taberandrew",
+        "activity_count": 188,
+        "user_rank": 85,
+        "user_percentage": 1.98,
+        "cumulative_activity_percentage": 84.62
+      },
+      {
+        "user": "ibison4",
+        "activity_count": 186,
+        "user_rank": 86,
+        "user_percentage": 2.0,
+        "cumulative_activity_percentage": 84.69
+      },
+      {
+        "user": "sobotka",
+        "activity_count": 185,
+        "user_rank": 87,
+        "user_percentage": 2.02,
+        "cumulative_activity_percentage": 84.76
+      },
+      {
+        "user": "Ilkhanid",
+        "activity_count": 179,
+        "user_rank": 88,
+        "user_percentage": 2.05,
+        "cumulative_activity_percentage": 84.83
+      },
+      {
+        "user": "disillusioned cent",
+        "activity_count": 179,
+        "user_rank": 89,
+        "user_percentage": 2.07,
+        "cumulative_activity_percentage": 84.89
+      },
+      {
+        "user": "Jimurphy",
+        "activity_count": 179,
+        "user_rank": 90,
+        "user_percentage": 2.09,
+        "cumulative_activity_percentage": 84.96
+      },
+      {
+        "user": "holgalicious",
+        "activity_count": 178,
+        "user_rank": 91,
+        "user_percentage": 2.12,
+        "cumulative_activity_percentage": 85.03
+      },
+      {
+        "user": "historyweaver",
+        "activity_count": 178,
+        "user_rank": 92,
+        "user_percentage": 2.14,
+        "cumulative_activity_percentage": 85.09
+      },
+      {
+        "user": "nariposa",
+        "activity_count": 177,
+        "user_rank": 93,
+        "user_percentage": 2.16,
+        "cumulative_activity_percentage": 85.16
+      },
+      {
+        "user": "Andy Frazer",
+        "activity_count": 173,
+        "user_rank": 94,
+        "user_percentage": 2.19,
+        "cumulative_activity_percentage": 85.22
+      },
+      {
+        "user": "rmkoske",
+        "activity_count": 172,
+        "user_rank": 95,
+        "user_percentage": 2.21,
+        "cumulative_activity_percentage": 85.29
+      },
+      {
+        "user": "xiphophilos",
+        "activity_count": 167,
+        "user_rank": 96,
+        "user_percentage": 2.23,
+        "cumulative_activity_percentage": 85.35
+      },
+      {
+        "user": "technogeo",
+        "activity_count": 166,
+        "user_rank": 97,
+        "user_percentage": 2.26,
+        "cumulative_activity_percentage": 85.41
+      },
+      {
+        "user": "bert_m_b",
+        "activity_count": 159,
+        "user_rank": 98,
+        "user_percentage": 2.28,
+        "cumulative_activity_percentage": 85.47
+      },
+      {
+        "user": "DianeLib",
+        "activity_count": 158,
+        "user_rank": 99,
+        "user_percentage": 2.3,
+        "cumulative_activity_percentage": 85.53
+      },
+      {
+        "user": "Melinda Young Stuart",
+        "activity_count": 156,
+        "user_rank": 100,
+        "user_percentage": 2.33,
+        "cumulative_activity_percentage": 85.59
+      }
+    ]
+  },
+  "comments": {
+    "activity_type": "comments",
+    "total_users": 15007,
+    "total_activities": 83487,
+    "average_per_user": 5.56,
+    "median_activities": 1,
+    "breakpoints": {
+      "users_for_10pct_activity": {
+        "user_count": 1,
+        "user_percentage": 0.01,
+        "activity_percentage": 10
+      },
+      "users_for_20pct_activity": {
+        "user_count": 2,
+        "user_percentage": 0.01,
+        "activity_percentage": 20
+      },
+      "users_for_30pct_activity": {
+        "user_count": 3,
+        "user_percentage": 0.02,
+        "activity_percentage": 30
+      },
+      "users_for_40pct_activity": {
+        "user_count": 4,
+        "user_percentage": 0.03,
+        "activity_percentage": 40
+      },
+      "users_for_50pct_activity": {
+        "user_count": 8,
+        "user_percentage": 0.05,
+        "activity_percentage": 50
+      },
+      "users_for_60pct_activity": {
+        "user_count": 39,
+        "user_percentage": 0.26,
+        "activity_percentage": 60
+      },
+      "users_for_70pct_activity": {
+        "user_count": 269,
+        "user_percentage": 1.79,
+        "activity_percentage": 70
+      },
+      "users_for_80pct_activity": {
+        "user_count": 1639,
+        "user_percentage": 10.92,
+        "activity_percentage": 80
+      },
+      "users_for_90pct_activity": {
+        "user_count": 6655,
+        "user_percentage": 44.35,
+        "activity_percentage": 90
+      },
+      "users_for_95pct_activity": {
+        "user_count": 10829,
+        "user_percentage": 72.16,
+        "activity_percentage": 95
+      },
+      "users_for_99pct_activity": {
+        "user_count": 14168,
+        "user_percentage": 94.41,
+        "activity_percentage": 99
+      }
+    },
+    "top_20_users": [
+      {
+        "rank": 1,
+        "user": "swanq",
+        "count": 12791,
+        "percentage": 15.32
+      },
+      {
+        "rank": 2,
+        "user": "artolog",
+        "count": 8935,
+        "percentage": 10.7
+      },
+      {
+        "rank": 3,
+        "user": "B-59",
+        "count": 8217,
+        "percentage": 9.84
+      },
+      {
+        "rank": 4,
+        "user": "Richard Arthur Norton  (1958- )",
+        "count": 4795,
+        "percentage": 5.74
+      },
+      {
+        "rank": 5,
+        "user": "In Memoriam: Wystan",
+        "count": 3271,
+        "percentage": 3.92
+      },
+      {
+        "rank": 6,
+        "user": "pennylrichardsca (now at ipernity)",
+        "count": 1812,
+        "percentage": 2.17
+      },
+      {
+        "rank": 7,
+        "user": "Richard Arthur Norton (1958- )",
+        "count": 1141,
+        "percentage": 1.37
+      },
+      {
+        "rank": 8,
+        "user": "aware health",
+        "count": 783,
+        "percentage": 0.94
+      },
+      {
+        "rank": 9,
+        "user": "Kilted Cowboy",
+        "count": 683,
+        "percentage": 0.82
+      },
+      {
+        "rank": 10,
+        "user": "productive side",
+        "count": 610,
+        "percentage": 0.73
+      },
+      {
+        "rank": 11,
+        "user": "Pixel Wrangler",
+        "count": 562,
+        "percentage": 0.67
+      },
+      {
+        "rank": 12,
+        "user": "trialsanderrors",
+        "count": 493,
+        "percentage": 0.59
+      },
+      {
+        "rank": 13,
+        "user": "Harry Angstrom",
+        "count": 443,
+        "percentage": 0.53
+      },
+      {
+        "rank": 14,
+        "user": "Seuss.",
+        "count": 392,
+        "percentage": 0.47
+      },
+      {
+        "rank": 15,
+        "user": "In Memoriam: budderflyman",
+        "count": 368,
+        "percentage": 0.44
+      },
+      {
+        "rank": 16,
+        "user": "BobMeade",
+        "count": 329,
+        "percentage": 0.39
+      },
+      {
+        "rank": 17,
+        "user": "skillful north",
+        "count": 318,
+        "percentage": 0.38
+      },
+      {
+        "rank": 18,
+        "user": "captainslack",
+        "count": 317,
+        "percentage": 0.38
+      },
+      {
+        "rank": 19,
+        "user": "jerodamor@yahoo.com.mx",
+        "count": 301,
+        "percentage": 0.36
+      },
+      {
+        "rank": 20,
+        "user": "TVL1970",
+        "count": 298,
+        "percentage": 0.36
+      }
+    ],
+    "distribution_sample": [
+      {
+        "user": "swanq",
+        "activity_count": 12791,
+        "user_rank": 1,
+        "user_percentage": 0.01,
+        "cumulative_activity_percentage": 15.32
+      },
+      {
+        "user": "artolog",
+        "activity_count": 8935,
+        "user_rank": 2,
+        "user_percentage": 0.01,
+        "cumulative_activity_percentage": 26.02
+      },
+      {
+        "user": "B-59",
+        "activity_count": 8217,
+        "user_rank": 3,
+        "user_percentage": 0.02,
+        "cumulative_activity_percentage": 35.87
+      },
+      {
+        "user": "Richard Arthur Norton  (1958- )",
+        "activity_count": 4795,
+        "user_rank": 4,
+        "user_percentage": 0.03,
+        "cumulative_activity_percentage": 41.61
+      },
+      {
+        "user": "In Memoriam: Wystan",
+        "activity_count": 3271,
+        "user_rank": 5,
+        "user_percentage": 0.03,
+        "cumulative_activity_percentage": 45.53
+      },
+      {
+        "user": "pennylrichardsca (now at ipernity)",
+        "activity_count": 1812,
+        "user_rank": 6,
+        "user_percentage": 0.04,
+        "cumulative_activity_percentage": 47.7
+      },
+      {
+        "user": "Richard Arthur Norton (1958- )",
+        "activity_count": 1141,
+        "user_rank": 7,
+        "user_percentage": 0.05,
+        "cumulative_activity_percentage": 49.06
+      },
+      {
+        "user": "aware health",
+        "activity_count": 783,
+        "user_rank": 8,
+        "user_percentage": 0.05,
+        "cumulative_activity_percentage": 50.0
+      },
+      {
+        "user": "Kilted Cowboy",
+        "activity_count": 683,
+        "user_rank": 9,
+        "user_percentage": 0.06,
+        "cumulative_activity_percentage": 50.82
+      },
+      {
+        "user": "productive side",
+        "activity_count": 610,
+        "user_rank": 10,
+        "user_percentage": 0.07,
+        "cumulative_activity_percentage": 51.55
+      },
+      {
+        "user": "Pixel Wrangler",
+        "activity_count": 562,
+        "user_rank": 11,
+        "user_percentage": 0.07,
+        "cumulative_activity_percentage": 52.22
+      },
+      {
+        "user": "trialsanderrors",
+        "activity_count": 493,
+        "user_rank": 12,
+        "user_percentage": 0.08,
+        "cumulative_activity_percentage": 52.81
+      },
+      {
+        "user": "Harry Angstrom",
+        "activity_count": 443,
+        "user_rank": 13,
+        "user_percentage": 0.09,
+        "cumulative_activity_percentage": 53.34
+      },
+      {
+        "user": "Seuss.",
+        "activity_count": 392,
+        "user_rank": 14,
+        "user_percentage": 0.09,
+        "cumulative_activity_percentage": 53.81
+      },
+      {
+        "user": "In Memoriam: budderflyman",
+        "activity_count": 368,
+        "user_rank": 15,
+        "user_percentage": 0.1,
+        "cumulative_activity_percentage": 54.26
+      },
+      {
+        "user": "BobMeade",
+        "activity_count": 329,
+        "user_rank": 16,
+        "user_percentage": 0.11,
+        "cumulative_activity_percentage": 54.65
+      },
+      {
+        "user": "skillful north",
+        "activity_count": 318,
+        "user_rank": 17,
+        "user_percentage": 0.11,
+        "cumulative_activity_percentage": 55.03
+      },
+      {
+        "user": "captainslack",
+        "activity_count": 317,
+        "user_rank": 18,
+        "user_percentage": 0.12,
+        "cumulative_activity_percentage": 55.41
+      },
+      {
+        "user": "jerodamor@yahoo.com.mx",
+        "activity_count": 301,
+        "user_rank": 19,
+        "user_percentage": 0.13,
+        "cumulative_activity_percentage": 55.77
+      },
+      {
+        "user": "TVL1970",
+        "activity_count": 298,
+        "user_rank": 20,
+        "user_percentage": 0.13,
+        "cumulative_activity_percentage": 56.13
+      },
+      {
+        "user": "Retired at last",
+        "activity_count": 282,
+        "user_rank": 21,
+        "user_percentage": 0.14,
+        "cumulative_activity_percentage": 56.47
+      },
+      {
+        "user": "whyaduck",
+        "activity_count": 262,
+        "user_rank": 22,
+        "user_percentage": 0.15,
+        "cumulative_activity_percentage": 56.78
+      },
+      {
+        "user": "victuallers2",
+        "activity_count": 258,
+        "user_rank": 23,
+        "user_percentage": 0.15,
+        "cumulative_activity_percentage": 57.09
+      },
+      {
+        "user": "bior",
+        "activity_count": 225,
+        "user_rank": 24,
+        "user_percentage": 0.16,
+        "cumulative_activity_percentage": 57.36
+      },
+      {
+        "user": "technogeo",
+        "activity_count": 193,
+        "user_rank": 25,
+        "user_percentage": 0.17,
+        "cumulative_activity_percentage": 57.59
+      },
+      {
+        "user": "Vagabond Jewelry (Kest)",
+        "activity_count": 192,
+        "user_rank": 26,
+        "user_percentage": 0.17,
+        "cumulative_activity_percentage": 57.82
+      },
+      {
+        "user": "Flickr",
+        "activity_count": 186,
+        "user_rank": 27,
+        "user_percentage": 0.18,
+        "cumulative_activity_percentage": 58.04
+      },
+      {
+        "user": "Cynthia Wenslow",
+        "activity_count": 164,
+        "user_rank": 28,
+        "user_percentage": 0.19,
+        "cumulative_activity_percentage": 58.24
+      },
+      {
+        "user": "neshachan",
+        "activity_count": 157,
+        "user_rank": 29,
+        "user_percentage": 0.19,
+        "cumulative_activity_percentage": 58.43
+      },
+      {
+        "user": "perfgeek",
+        "activity_count": 153,
+        "user_rank": 30,
+        "user_percentage": 0.2,
+        "cumulative_activity_percentage": 58.61
+      },
+      {
+        "user": "ART NAHPRO",
+        "activity_count": 147,
+        "user_rank": 31,
+        "user_percentage": 0.21,
+        "cumulative_activity_percentage": 58.79
+      },
+      {
+        "user": "Photo Nut 2011",
+        "activity_count": 144,
+        "user_rank": 32,
+        "user_percentage": 0.21,
+        "cumulative_activity_percentage": 58.96
+      },
+      {
+        "user": "Andrey Timofeev",
+        "activity_count": 141,
+        "user_rank": 33,
+        "user_percentage": 0.22,
+        "cumulative_activity_percentage": 59.13
+      },
+      {
+        "user": "Mando Maniac",
+        "activity_count": 138,
+        "user_rank": 34,
+        "user_percentage": 0.23,
+        "cumulative_activity_percentage": 59.29
+      },
+      {
+        "user": "Lú_",
+        "activity_count": 138,
+        "user_rank": 35,
+        "user_percentage": 0.23,
+        "cumulative_activity_percentage": 59.46
+      },
+      {
+        "user": "jamica1",
+        "activity_count": 132,
+        "user_rank": 36,
+        "user_percentage": 0.24,
+        "cumulative_activity_percentage": 59.62
+      },
+      {
+        "user": "Melinda Young Stuart",
+        "activity_count": 129,
+        "user_rank": 37,
+        "user_percentage": 0.25,
+        "cumulative_activity_percentage": 59.77
+      },
+      {
+        "user": "Infrogmation",
+        "activity_count": 128,
+        "user_rank": 38,
+        "user_percentage": 0.25,
+        "cumulative_activity_percentage": 59.92
+      },
+      {
+        "user": "Rob Ketcherside",
+        "activity_count": 123,
+        "user_rank": 39,
+        "user_percentage": 0.26,
+        "cumulative_activity_percentage": 60.07
+      },
+      {
+        "user": "luc 5",
+        "activity_count": 115,
+        "user_rank": 40,
+        "user_percentage": 0.27,
+        "cumulative_activity_percentage": 60.21
+      },
+      {
+        "user": "Jim Rees",
+        "activity_count": 115,
+        "user_rank": 41,
+        "user_percentage": 0.27,
+        "cumulative_activity_percentage": 60.35
+      },
+      {
+        "user": "excellentzebu1050",
+        "activity_count": 113,
+        "user_rank": 42,
+        "user_percentage": 0.28,
+        "cumulative_activity_percentage": 60.48
+      },
+      {
+        "user": "undeadsinatra",
+        "activity_count": 112,
+        "user_rank": 43,
+        "user_percentage": 0.29,
+        "cumulative_activity_percentage": 60.62
+      },
+      {
+        "user": "gato-gato-gato",
+        "activity_count": 111,
+        "user_rank": 44,
+        "user_percentage": 0.29,
+        "cumulative_activity_percentage": 60.75
+      },
+      {
+        "user": "Juanbpn.",
+        "activity_count": 108,
+        "user_rank": 45,
+        "user_percentage": 0.3,
+        "cumulative_activity_percentage": 60.88
+      },
+      {
+        "user": "cotinis",
+        "activity_count": 106,
+        "user_rank": 46,
+        "user_percentage": 0.31,
+        "cumulative_activity_percentage": 61.0
+      },
+      {
+        "user": "xiphophilos",
+        "activity_count": 102,
+        "user_rank": 47,
+        "user_percentage": 0.31,
+        "cumulative_activity_percentage": 61.13
+      },
+      {
+        "user": "Leif Bop",
+        "activity_count": 102,
+        "user_rank": 48,
+        "user_percentage": 0.32,
+        "cumulative_activity_percentage": 61.25
+      },
+      {
+        "user": "incognito7nyc",
+        "activity_count": 100,
+        "user_rank": 49,
+        "user_percentage": 0.33,
+        "cumulative_activity_percentage": 61.37
+      },
+      {
+        "user": "dean.zanutig",
+        "activity_count": 99,
+        "user_rank": 50,
+        "user_percentage": 0.33,
+        "cumulative_activity_percentage": 61.49
+      },
+      {
+        "user": "DarkAngelDay",
+        "activity_count": 98,
+        "user_rank": 51,
+        "user_percentage": 0.34,
+        "cumulative_activity_percentage": 61.6
+      },
+      {
+        "user": "s0340248",
+        "activity_count": 97,
+        "user_rank": 52,
+        "user_percentage": 0.35,
+        "cumulative_activity_percentage": 61.72
+      },
+      {
+        "user": "le cabri",
+        "activity_count": 95,
+        "user_rank": 53,
+        "user_percentage": 0.35,
+        "cumulative_activity_percentage": 61.83
+      },
+      {
+        "user": "Philip Osborne Photography",
+        "activity_count": 94,
+        "user_rank": 54,
+        "user_percentage": 0.36,
+        "cumulative_activity_percentage": 61.95
+      },
+      {
+        "user": "puzzlemaster",
+        "activity_count": 93,
+        "user_rank": 55,
+        "user_percentage": 0.37,
+        "cumulative_activity_percentage": 62.06
+      },
+      {
+        "user": "artland",
+        "activity_count": 93,
+        "user_rank": 56,
+        "user_percentage": 0.37,
+        "cumulative_activity_percentage": 62.17
+      },
+      {
+        "user": "Andrei Goncharik",
+        "activity_count": 92,
+        "user_rank": 57,
+        "user_percentage": 0.38,
+        "cumulative_activity_percentage": 62.28
+      },
+      {
+        "user": "quigley_brown (Jim Hamann)",
+        "activity_count": 86,
+        "user_rank": 58,
+        "user_percentage": 0.39,
+        "cumulative_activity_percentage": 62.38
+      },
+      {
+        "user": "Mark in NOVA",
+        "activity_count": 82,
+        "user_rank": 59,
+        "user_percentage": 0.39,
+        "cumulative_activity_percentage": 62.48
+      },
+      {
+        "user": "maorlando - God keeps me as I lean on Him!!",
+        "activity_count": 80,
+        "user_rank": 60,
+        "user_percentage": 0.4,
+        "cumulative_activity_percentage": 62.58
+      },
+      {
+        "user": "donovanbeeson",
+        "activity_count": 78,
+        "user_rank": 61,
+        "user_percentage": 0.41,
+        "cumulative_activity_percentage": 62.67
+      },
+      {
+        "user": "mambo1935",
+        "activity_count": 77,
+        "user_rank": 62,
+        "user_percentage": 0.41,
+        "cumulative_activity_percentage": 62.76
+      },
+      {
+        "user": "David Pirmann",
+        "activity_count": 75,
+        "user_rank": 63,
+        "user_percentage": 0.42,
+        "cumulative_activity_percentage": 62.85
+      },
+      {
+        "user": "terrific lake",
+        "activity_count": 73,
+        "user_rank": 64,
+        "user_percentage": 0.43,
+        "cumulative_activity_percentage": 62.94
+      },
+      {
+        "user": "ɹǝqɯoɔɥɔɐǝq",
+        "activity_count": 72,
+        "user_rank": 65,
+        "user_percentage": 0.43,
+        "cumulative_activity_percentage": 63.03
+      },
+      {
+        "user": "Voxphoto",
+        "activity_count": 72,
+        "user_rank": 66,
+        "user_percentage": 0.44,
+        "cumulative_activity_percentage": 63.11
+      },
+      {
+        "user": "j3net",
+        "activity_count": 69,
+        "user_rank": 67,
+        "user_percentage": 0.45,
+        "cumulative_activity_percentage": 63.2
+      },
+      {
+        "user": "BigBean",
+        "activity_count": 69,
+        "user_rank": 68,
+        "user_percentage": 0.45,
+        "cumulative_activity_percentage": 63.28
+      },
+      {
+        "user": "mikescottnz",
+        "activity_count": 67,
+        "user_rank": 69,
+        "user_percentage": 0.46,
+        "cumulative_activity_percentage": 63.36
+      },
+      {
+        "user": "johngpt",
+        "activity_count": 65,
+        "user_rank": 70,
+        "user_percentage": 0.47,
+        "cumulative_activity_percentage": 63.44
+      },
+      {
+        "user": "Noël Zia Lee",
+        "activity_count": 65,
+        "user_rank": 71,
+        "user_percentage": 0.47,
+        "cumulative_activity_percentage": 63.51
+      },
+      {
+        "user": "jdavis417",
+        "activity_count": 65,
+        "user_rank": 72,
+        "user_percentage": 0.48,
+        "cumulative_activity_percentage": 63.59
+      },
+      {
+        "user": "kodaksights",
+        "activity_count": 63,
+        "user_rank": 73,
+        "user_percentage": 0.49,
+        "cumulative_activity_percentage": 63.67
+      },
+      {
+        "user": "cabingoddess",
+        "activity_count": 63,
+        "user_rank": 74,
+        "user_percentage": 0.49,
+        "cumulative_activity_percentage": 63.74
+      },
+      {
+        "user": "Sigurd Krieger",
+        "activity_count": 58,
+        "user_rank": 75,
+        "user_percentage": 0.5,
+        "cumulative_activity_percentage": 63.81
+      },
+      {
+        "user": "striatic",
+        "activity_count": 57,
+        "user_rank": 76,
+        "user_percentage": 0.51,
+        "cumulative_activity_percentage": 63.88
+      },
+      {
+        "user": "Vidiot",
+        "activity_count": 56,
+        "user_rank": 77,
+        "user_percentage": 0.51,
+        "cumulative_activity_percentage": 63.95
+      },
+      {
+        "user": "epicharmus",
+        "activity_count": 55,
+        "user_rank": 78,
+        "user_percentage": 0.52,
+        "cumulative_activity_percentage": 64.01
+      },
+      {
+        "user": "ANAGALI.",
+        "activity_count": 54,
+        "user_rank": 79,
+        "user_percentage": 0.53,
+        "cumulative_activity_percentage": 64.08
+      },
+      {
+        "user": "Σταύρος",
+        "activity_count": 53,
+        "user_rank": 80,
+        "user_percentage": 0.53,
+        "cumulative_activity_percentage": 64.14
+      },
+      {
+        "user": "conner395",
+        "activity_count": 51,
+        "user_rank": 81,
+        "user_percentage": 0.54,
+        "cumulative_activity_percentage": 64.2
+      },
+      {
+        "user": "jdshephe46",
+        "activity_count": 50,
+        "user_rank": 82,
+        "user_percentage": 0.55,
+        "cumulative_activity_percentage": 64.26
+      },
+      {
+        "user": "Zinaida Beaumont (Nous sommes Paris)",
+        "activity_count": 50,
+        "user_rank": 83,
+        "user_percentage": 0.55,
+        "cumulative_activity_percentage": 64.32
+      },
+      {
+        "user": "Pioneer United States Aviation 1908-1912",
+        "activity_count": 50,
+        "user_rank": 84,
+        "user_percentage": 0.56,
+        "cumulative_activity_percentage": 64.38
+      },
+      {
+        "user": "Caesar1956",
+        "activity_count": 49,
+        "user_rank": 85,
+        "user_percentage": 0.57,
+        "cumulative_activity_percentage": 64.44
+      },
+      {
+        "user": "roderickbodine",
+        "activity_count": 48,
+        "user_rank": 86,
+        "user_percentage": 0.57,
+        "cumulative_activity_percentage": 64.5
+      },
+      {
+        "user": "calm respect",
+        "activity_count": 47,
+        "user_rank": 87,
+        "user_percentage": 0.58,
+        "cumulative_activity_percentage": 64.55
+      },
+      {
+        "user": "Howard33",
+        "activity_count": 47,
+        "user_rank": 88,
+        "user_percentage": 0.59,
+        "cumulative_activity_percentage": 64.61
+      },
+      {
+        "user": "Ed Gilvarte",
+        "activity_count": 46,
+        "user_rank": 89,
+        "user_percentage": 0.59,
+        "cumulative_activity_percentage": 64.67
+      },
+      {
+        "user": "Michiel2005",
+        "activity_count": 45,
+        "user_rank": 90,
+        "user_percentage": 0.6,
+        "cumulative_activity_percentage": 64.72
+      },
+      {
+        "user": "Carlo Raso",
+        "activity_count": 45,
+        "user_rank": 91,
+        "user_percentage": 0.61,
+        "cumulative_activity_percentage": 64.77
+      },
+      {
+        "user": "Bolobilly",
+        "activity_count": 44,
+        "user_rank": 92,
+        "user_percentage": 0.61,
+        "cumulative_activity_percentage": 64.83
+      },
+      {
+        "user": "Dill Pixels (THE ORIGINAL)",
+        "activity_count": 42,
+        "user_rank": 93,
+        "user_percentage": 0.62,
+        "cumulative_activity_percentage": 64.88
+      },
+      {
+        "user": "Eli the Bearded",
+        "activity_count": 42,
+        "user_rank": 94,
+        "user_percentage": 0.63,
+        "cumulative_activity_percentage": 64.93
+      },
+      {
+        "user": "marked hair",
+        "activity_count": 42,
+        "user_rank": 95,
+        "user_percentage": 0.63,
+        "cumulative_activity_percentage": 64.98
+      },
+      {
+        "user": "last page",
+        "activity_count": 42,
+        "user_rank": 96,
+        "user_percentage": 0.64,
+        "cumulative_activity_percentage": 65.03
+      },
+      {
+        "user": "parkermulligan",
+        "activity_count": 42,
+        "user_rank": 97,
+        "user_percentage": 0.65,
+        "cumulative_activity_percentage": 65.08
+      },
+      {
+        "user": "Galilla S",
+        "activity_count": 41,
+        "user_rank": 98,
+        "user_percentage": 0.65,
+        "cumulative_activity_percentage": 65.13
+      },
+      {
+        "user": "Mr. Happy Face - Peace :)",
+        "activity_count": 39,
+        "user_rank": 99,
+        "user_percentage": 0.66,
+        "cumulative_activity_percentage": 65.17
+      },
+      {
+        "user": "Darkroom Daze",
+        "activity_count": 39,
+        "user_rank": 100,
+        "user_percentage": 0.67,
+        "cumulative_activity_percentage": 65.22
+      }
+    ]
+  },
+  "summary": {
+    "tags_follow_20_80": true,
+    "comments_follow_20_80": true,
+    "tags_concentration": "1.0% users → 80% activity",
+    "comments_concentration": "10.9% users → 80% activity"
+  }
+}

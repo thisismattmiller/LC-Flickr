@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Graph Visualization</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    }
+    #canvas {
+      width: 100vw;
+      height: 100vh;
+      display: block;
+    }
+    #tooltip {
+      position: absolute;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-size: 14px;
+      pointer-events: none;
+      display: none;
+      z-index: 1000;
+    }
+    #loading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 18px;
+    }
+    
+    /* Image panel styles */
+    #image-panel {
+      position: fixed;
+      top: 0;
+      right: -400px; /* Hidden by default */
+      width: 400px;
+      height: 100vh;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+      transition: right 0.3s ease-in-out;
+      z-index: 500;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    #image-panel.open {
+      right: 0;
+    }
+    
+    #image-panel-header {
+      padding: 15px;
+      background: #f5f5f5;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    
+    #image-panel-header-left {
+      flex: 1;
+      margin-right: 10px;
+    }
+    
+    #image-panel-title {
+      font-weight: bold;
+      font-size: 16px;
+      margin: 0;
+      max-width: 320px;
+    }
+    
+    #image-panel-subtitle {
+      font-size: 12px;
+      color: #666;
+      margin-top: 4px;
+    }
+    
+    #image-panel-subtitle a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+    
+    #image-panel-subtitle a:hover {
+      text-decoration: underline;
+    }
+    
+    #image-panel-controls {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    
+    #copy-link-btn {
+      cursor: pointer;
+      font-size: 20px;
+      color: #666;
+      background: none;
+      border: none;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    
+    #copy-link-btn:hover {
+      color: #0066cc;
+    }
+    
+    #copy-link-btn.copied::after {
+      content: 'Copied!';
+      position: absolute;
+      bottom: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #333;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      white-space: nowrap;
+      pointer-events: none;
+      animation: fadeOut 2s ease-in-out;
+    }
+    
+    @keyframes fadeOut {
+      0% { opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+    
+    #image-panel-close {
+      cursor: pointer;
+      font-size: 24px;
+      line-height: 20px;
+      color: #666;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+    
+    #image-panel-close:hover {
+      color: #000;
+    }
+    
+    #image-panel-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    
+    #image-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+    
+    .image-item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      border-radius: 4px;
+      background: #f0f0f0;
+      width: 100%;
+    }
+    
+    .image-item-photo {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    
+    .image-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.2s;
+    }
+    
+    .image-item-photo:hover img {
+      transform: scale(1.05);
+    }
+    
+    .image-item-label {
+      padding: 6px;
+      background: #f8f8f8;
+      border-top: 1px solid #e0e0e0;
+      font-size: 11px;
+      text-align: center;
+    }
+    
+    .image-item-label a {
+      color: #0066cc;
+      text-decoration: none;
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    
+    .image-item-label a:hover {
+      text-decoration: underline;
+    }
+    
+    .image-tooltip {
+      position: absolute;
+      background: rgba(0, 0, 0, 0.9);
+      color: white;
+      padding: 6px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      pointer-events: none;
+      z-index: 1001;
+      white-space: nowrap;
+      max-width: 300px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: none;
+    }
+    
+    /* Loading prompt modal */
+    #loading-prompt {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('/graph_preview.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+    
+    #loading-prompt::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(2px);
+    }
+    
+    #loading-prompt.show {
+      display: flex;
+    }
+    
+    #loading-prompt-content {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 90%;
+      width: 450px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    #loading-prompt h2 {
+      margin: 0 0 20px 0;
+      color: #333;
+      font-size: 28px;
+    }
+    
+    #loading-prompt p {
+      margin: 0 0 10px 0;
+      color: #666;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+    
+    #loading-prompt .mobile-warning {
+      background: #fff3cd;
+      border: 1px solid #ffc107;
+      border-radius: 6px;
+      padding: 12px;
+      margin: 20px 0;
+      color: #856404;
+      font-size: 14px;
+      display: none;
+    }
+    
+    #loading-prompt.mobile .mobile-warning {
+      display: block;
+    }
+    
+    #loading-prompt-buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 25px;
+    }
+    
+    #loading-prompt button {
+      padding: 12px 40px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-weight: 500;
+    }
+    
+    #load-viz {
+      background: #2c5aa0;
+      color: white;
+    }
+    
+    #load-viz:hover {
+      background: #1e4080;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(44, 90, 160, 0.3);
+    }
+    
+    /* Search modal styles */
+    #search-modal {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 400px;
+      max-width: calc(100vw - 40px);
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      display: none;
+      flex-direction: column;
+      z-index: 1500;
+      max-height: 500px;
+    }
+    
+    #search-modal.open {
+      display: flex;
+    }
+    
+    #search-header {
+      padding: 12px 15px;
+      border-bottom: 1px solid #e0e0e0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    #search-input {
+      flex: 1;
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+      outline: none;
+    }
+    
+    #search-input:focus {
+      border-color: #2c5aa0;
+      box-shadow: 0 0 0 2px rgba(44, 90, 160, 0.1);
+    }
+    
+    #search-close {
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: #666;
+      padding: 4px;
+      line-height: 1;
+    }
+    
+    #search-close:hover {
+      color: #000;
+    }
+    
+    #search-results {
+      flex: 1;
+      overflow-y: auto;
+      max-height: 400px;
+    }
+    
+    #search-status {
+      padding: 12px 15px;
+      color: #666;
+      font-size: 13px;
+      text-align: center;
+      font-style: italic;
+    }
+    
+    .search-result {
+      padding: 10px 15px;
+      border-bottom: 1px solid #f0f0f0;
+      cursor: pointer;
+      transition: background-color 0.15s;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    
+    .search-result:hover {
+      background-color: #f5f8fa;
+    }
+    
+    .search-result.active {
+      background-color: #e8f0fe;
+    }
+    
+    .search-result-title {
+      font-size: 14px;
+      color: #222;
+      font-weight: 500;
+    }
+    
+    .search-result-id {
+      font-size: 12px;
+      color: #666;
+    }
+    
+    .search-result-type {
+      display: inline-block;
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 3px;
+      background: #f0f0f0;
+      color: #666;
+      margin-left: 6px;
+    }
+    
+    .search-result-type.image {
+      background: #fff3cd;
+      color: #856404;
+    }
+    
+    #search-footer {
+      padding: 8px 15px;
+      border-top: 1px solid #e0e0e0;
+      font-size: 11px;
+      color: #888;
+      text-align: center;
+    }
+  </style>
+  <script type="module" crossorigin src="/assets/index-DgNQam96.js"></script>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <div id="tooltip"></div>
+  <div id="loading">Loading graph data...</div>
+  
+  <!-- Loading Prompt Modal -->
+  <div id="loading-prompt">
+    <div id="loading-prompt-content">
+      <h2>🌐 Graph Visualization</h2>
+      <p>
+        Explore the network of Library of Congress photos connected to Wikidata entities.
+      </p>
+      <p style="color: #888; font-size: 13px;">
+        Navigate with mouse drag, zoom with scroll wheel, click nodes to explore connections.
+      </p>
+      <div class="mobile-warning">
+        ⚠️ <strong>Mobile Device Detected</strong><br>
+        This visualization is optimized for desktop. Performance may be limited on mobile devices.
+      </div>
+      <div id="loading-prompt-buttons">
+        <button id="load-viz">Load Visualization</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Image Panel -->
+  <div id="image-panel">
+    <div id="image-panel-header">
+      <div id="image-panel-header-left">
+        <h3 id="image-panel-title"></h3>
+        <div id="image-panel-subtitle"></div>
+      </div>
+      <div id="image-panel-controls">
+        <button id="copy-link-btn" title="Copy link to this node">🔗</button>
+        <button id="image-panel-close">×</button>
+      </div>
+    </div>
+    <div id="image-panel-content">
+      <div id="image-grid"></div>
+    </div>
+  </div>
+  <div class="image-tooltip" id="image-tooltip"></div>
+  
+  <!-- Search Modal -->
+  <div id="search-modal">
+    <div id="search-header">
+      <input type="text" id="search-input" placeholder="Search nodes..." autocomplete="off">
+      <button id="search-close">×</button>
+    </div>
+    <div id="search-results">
+      <div id="search-status">Type to search...</div>
+    </div>
+    <div id="search-footer">
+      Press Esc to close • Click result to jump
+    </div>
+  </div>
+  
+</body>
+</html>
