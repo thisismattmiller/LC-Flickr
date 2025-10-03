@@ -13,6 +13,7 @@ data/marc_files_from_search/
 data/lc_catalog_scrape/
 data/loc_marc_search_results/
 !data/flickr_photos_with_metadata_comments.json.gz
+!data/comments_by_category_simple.json
 # C extensions
 *.so
 apps/graph/public/photos/
