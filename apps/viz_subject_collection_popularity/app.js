@@ -5,7 +5,7 @@ let currentTab = 'subjects';
 // Load the data
 async function loadData() {
     try {
-        const response = await fetch('../../data/viz_data/subject_collection_popularity.json');
+        const response = await fetch('subject_collection_popularity.json');
         data = await response.json();
         initialize();
     } catch (error) {
