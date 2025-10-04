@@ -1,0 +1,1360 @@
+{
+  "subjects": {
+    "top_100": [
+      {
+        "subject": "World War, 1939-1945",
+        "photos": 938,
+        "interactions": {
+          "tags": 24965,
+          "notes": 1306,
+          "comments": 5237,
+          "total": 31508
+        },
+        "avg_per_photo": 33.59
+      },
+      {
+        "subject": "World War, 1914-1918.",
+        "photos": 1247,
+        "interactions": {
+          "tags": 9979,
+          "notes": 294,
+          "comments": 2503,
+          "total": 12776
+        },
+        "avg_per_photo": 10.25
+      },
+      {
+        "subject": "Airplane industry",
+        "photos": 170,
+        "interactions": {
+          "tags": 7088,
+          "notes": 301,
+          "comments": 1793,
+          "total": 9182
+        },
+        "avg_per_photo": 54.01
+      },
+      {
+        "subject": "Women",
+        "photos": 185,
+        "interactions": {
+          "tags": 4910,
+          "notes": 307,
+          "comments": 1888,
+          "total": 7105
+        },
+        "avg_per_photo": 38.41
+      },
+      {
+        "subject": "Soldiers",
+        "photos": 512,
+        "interactions": {
+          "tags": 4856,
+          "notes": 56,
+          "comments": 691,
+          "total": 5603
+        },
+        "avg_per_photo": 10.94
+      },
+      {
+        "subject": "Air bases",
+        "photos": 176,
+        "interactions": {
+          "tags": 4882,
+          "notes": 137,
+          "comments": 396,
+          "total": 5415
+        },
+        "avg_per_photo": 30.77
+      },
+      {
+        "subject": "Signs (Notices)",
+        "photos": 721,
+        "interactions": {
+          "tags": 4379,
+          "notes": 1,
+          "comments": 520,
+          "total": 4900
+        },
+        "avg_per_photo": 6.8
+      },
+      {
+        "subject": "Military uniforms",
+        "photos": 498,
+        "interactions": {
+          "tags": 4244,
+          "notes": 22,
+          "comments": 496,
+          "total": 4762
+        },
+        "avg_per_photo": 9.56
+      },
+      {
+        "subject": "Assembly-line methods",
+        "photos": 64,
+        "interactions": {
+          "tags": 2840,
+          "notes": 98,
+          "comments": 461,
+          "total": 3399
+        },
+        "avg_per_photo": 53.11
+      },
+      {
+        "subject": "African Americans",
+        "photos": 107,
+        "interactions": {
+          "tags": 1728,
+          "notes": 101,
+          "comments": 912,
+          "total": 2741
+        },
+        "avg_per_photo": 25.62
+      },
+      {
+        "subject": "Bombers",
+        "photos": 41,
+        "interactions": {
+          "tags": 1904,
+          "notes": 57,
+          "comments": 522,
+          "total": 2483
+        },
+        "avg_per_photo": 60.56
+      },
+      {
+        "subject": "Railroad shops & yards",
+        "photos": 111,
+        "interactions": {
+          "tags": 1953,
+          "notes": 108,
+          "comments": 273,
+          "total": 2334
+        },
+        "avg_per_photo": 21.03
+      },
+      {
+        "subject": "Airplanes",
+        "photos": 55,
+        "interactions": {
+          "tags": 1807,
+          "notes": 63,
+          "comments": 232,
+          "total": 2102
+        },
+        "avg_per_photo": 38.22
+      },
+      {
+        "subject": "Flight training",
+        "photos": 74,
+        "interactions": {
+          "tags": 1842,
+          "notes": 78,
+          "comments": 122,
+          "total": 2042
+        },
+        "avg_per_photo": 27.59
+      },
+      {
+        "subject": "Fairs",
+        "photos": 43,
+        "interactions": {
+          "tags": 1230,
+          "notes": 204,
+          "comments": 488,
+          "total": 1922
+        },
+        "avg_per_photo": 44.7
+      },
+      {
+        "subject": "Mountains",
+        "photos": 87,
+        "interactions": {
+          "tags": 1642,
+          "notes": 46,
+          "comments": 185,
+          "total": 1873
+        },
+        "avg_per_photo": 21.53
+      },
+      {
+        "subject": "Armories",
+        "photos": 42,
+        "interactions": {
+          "tags": 1310,
+          "notes": 80,
+          "comments": 335,
+          "total": 1725
+        },
+        "avg_per_photo": 41.07
+      },
+      {
+        "subject": "Motion picture theaters",
+        "photos": 177,
+        "interactions": {
+          "tags": 1375,
+          "notes": 0,
+          "comments": 247,
+          "total": 1622
+        },
+        "avg_per_photo": 9.16
+      },
+      {
+        "subject": "Children",
+        "photos": 40,
+        "interactions": {
+          "tags": 942,
+          "notes": 130,
+          "comments": 418,
+          "total": 1490
+        },
+        "avg_per_photo": 37.25
+      },
+      {
+        "subject": "Automobile service stations",
+        "photos": 173,
+        "interactions": {
+          "tags": 1262,
+          "notes": 21,
+          "comments": 101,
+          "total": 1384
+        },
+        "avg_per_photo": 8.0
+      },
+      {
+        "subject": "Farms",
+        "photos": 67,
+        "interactions": {
+          "tags": 1120,
+          "notes": 46,
+          "comments": 105,
+          "total": 1271
+        },
+        "avg_per_photo": 18.97
+      },
+      {
+        "subject": "Tanks (Military science)",
+        "photos": 28,
+        "interactions": {
+          "tags": 893,
+          "notes": 58,
+          "comments": 292,
+          "total": 1243
+        },
+        "avg_per_photo": 44.39
+      },
+      {
+        "subject": "Rifles",
+        "photos": 123,
+        "interactions": {
+          "tags": 1100,
+          "notes": 19,
+          "comments": 122,
+          "total": 1241
+        },
+        "avg_per_photo": 10.09
+      },
+      {
+        "subject": "Streets",
+        "photos": 46,
+        "interactions": {
+          "tags": 814,
+          "notes": 138,
+          "comments": 247,
+          "total": 1199
+        },
+        "avg_per_photo": 26.07
+      },
+      {
+        "subject": "Gardens",
+        "photos": 261,
+        "interactions": {
+          "tags": 921,
+          "notes": 16,
+          "comments": 255,
+          "total": 1192
+        },
+        "avg_per_photo": 4.57
+      },
+      {
+        "subject": "Dams",
+        "photos": 43,
+        "interactions": {
+          "tags": 676,
+          "notes": 25,
+          "comments": 458,
+          "total": 1159
+        },
+        "avg_per_photo": 26.95
+      },
+      {
+        "subject": "Restaurants",
+        "photos": 127,
+        "interactions": {
+          "tags": 984,
+          "notes": 22,
+          "comments": 143,
+          "total": 1149
+        },
+        "avg_per_photo": 9.05
+      },
+      {
+        "subject": "Construction industry",
+        "photos": 30,
+        "interactions": {
+          "tags": 630,
+          "notes": 38,
+          "comments": 473,
+          "total": 1141
+        },
+        "avg_per_photo": 38.03
+      },
+      {
+        "subject": "Motels",
+        "photos": 160,
+        "interactions": {
+          "tags": 1046,
+          "notes": 0,
+          "comments": 74,
+          "total": 1120
+        },
+        "avg_per_photo": 7.0
+      },
+      {
+        "subject": "Civil service",
+        "photos": 29,
+        "interactions": {
+          "tags": 960,
+          "notes": 42,
+          "comments": 108,
+          "total": 1110
+        },
+        "avg_per_photo": 38.28
+      },
+      {
+        "subject": "Snow",
+        "photos": 52,
+        "interactions": {
+          "tags": 964,
+          "notes": 16,
+          "comments": 127,
+          "total": 1107
+        },
+        "avg_per_photo": 21.29
+      },
+      {
+        "subject": "Drive-in theaters",
+        "photos": 122,
+        "interactions": {
+          "tags": 940,
+          "notes": 0,
+          "comments": 141,
+          "total": 1081
+        },
+        "avg_per_photo": 8.86
+      },
+      {
+        "subject": "Homesteading",
+        "photos": 34,
+        "interactions": {
+          "tags": 767,
+          "notes": 84,
+          "comments": 226,
+          "total": 1077
+        },
+        "avg_per_photo": 31.68
+      },
+      {
+        "subject": "Roads",
+        "photos": 49,
+        "interactions": {
+          "tags": 875,
+          "notes": 36,
+          "comments": 139,
+          "total": 1050
+        },
+        "avg_per_photo": 21.43
+      },
+      {
+        "subject": "Gliders",
+        "photos": 43,
+        "interactions": {
+          "tags": 983,
+          "notes": 25,
+          "comments": 36,
+          "total": 1044
+        },
+        "avg_per_photo": 24.28
+      },
+      {
+        "subject": "Miniature golf",
+        "photos": 565,
+        "interactions": {
+          "tags": 385,
+          "notes": 3,
+          "comments": 612,
+          "total": 1000
+        },
+        "avg_per_photo": 1.77
+      },
+      {
+        "subject": "Air pilots",
+        "photos": 33,
+        "interactions": {
+          "tags": 830,
+          "notes": 30,
+          "comments": 90,
+          "total": 950
+        },
+        "avg_per_photo": 28.79
+      },
+      {
+        "subject": "Industrial facilities",
+        "photos": 31,
+        "interactions": {
+          "tags": 721,
+          "notes": 48,
+          "comments": 158,
+          "total": 927
+        },
+        "avg_per_photo": 29.9
+      },
+      {
+        "subject": "Shipping",
+        "photos": 51,
+        "interactions": {
+          "tags": 786,
+          "notes": 42,
+          "comments": 98,
+          "total": 926
+        },
+        "avg_per_photo": 18.16
+      },
+      {
+        "subject": "Transport planes",
+        "photos": 22,
+        "interactions": {
+          "tags": 818,
+          "notes": 29,
+          "comments": 66,
+          "total": 913
+        },
+        "avg_per_photo": 41.5
+      },
+      {
+        "subject": "Railroad employees",
+        "photos": 37,
+        "interactions": {
+          "tags": 708,
+          "notes": 78,
+          "comments": 112,
+          "total": 898
+        },
+        "avg_per_photo": 24.27
+      },
+      {
+        "subject": "Sugar plantations",
+        "photos": 46,
+        "interactions": {
+          "tags": 718,
+          "notes": 31,
+          "comments": 82,
+          "total": 831
+        },
+        "avg_per_photo": 18.07
+      },
+      {
+        "subject": "Harvesting",
+        "photos": 29,
+        "interactions": {
+          "tags": 622,
+          "notes": 32,
+          "comments": 136,
+          "total": 790
+        },
+        "avg_per_photo": 27.24
+      },
+      {
+        "subject": "Cooperatives",
+        "photos": 34,
+        "interactions": {
+          "tags": 611,
+          "notes": 24,
+          "comments": 147,
+          "total": 782
+        },
+        "avg_per_photo": 23.0
+      },
+      {
+        "subject": "Ice cream & ices",
+        "photos": 106,
+        "interactions": {
+          "tags": 715,
+          "notes": 0,
+          "comments": 46,
+          "total": 761
+        },
+        "avg_per_photo": 7.18
+      },
+      {
+        "subject": "Drilling",
+        "photos": 10,
+        "interactions": {
+          "tags": 454,
+          "notes": 12,
+          "comments": 293,
+          "total": 759
+        },
+        "avg_per_photo": 75.9
+      },
+      {
+        "subject": "Handguns",
+        "photos": 88,
+        "interactions": {
+          "tags": 659,
+          "notes": 0,
+          "comments": 96,
+          "total": 755
+        },
+        "avg_per_photo": 8.58
+      },
+      {
+        "subject": "Military training",
+        "photos": 20,
+        "interactions": {
+          "tags": 613,
+          "notes": 41,
+          "comments": 98,
+          "total": 752
+        },
+        "avg_per_photo": 37.6
+      },
+      {
+        "subject": "Daggers & swords",
+        "photos": 75,
+        "interactions": {
+          "tags": 638,
+          "notes": 0,
+          "comments": 65,
+          "total": 703
+        },
+        "avg_per_photo": 9.37
+      },
+      {
+        "subject": "Sculpture",
+        "photos": 118,
+        "interactions": {
+          "tags": 544,
+          "notes": 15,
+          "comments": 136,
+          "total": 695
+        },
+        "avg_per_photo": 5.89
+      },
+      {
+        "subject": "Railroad freight cars",
+        "photos": 31,
+        "interactions": {
+          "tags": 563,
+          "notes": 37,
+          "comments": 67,
+          "total": 667
+        },
+        "avg_per_photo": 21.52
+      },
+      {
+        "subject": "National security",
+        "photos": 20,
+        "interactions": {
+          "tags": 594,
+          "notes": 6,
+          "comments": 49,
+          "total": 649
+        },
+        "avg_per_photo": 32.45
+      },
+      {
+        "subject": "Flags",
+        "photos": 32,
+        "interactions": {
+          "tags": 556,
+          "notes": 19,
+          "comments": 68,
+          "total": 643
+        },
+        "avg_per_photo": 20.09
+      },
+      {
+        "subject": "Steel industry",
+        "photos": 26,
+        "interactions": {
+          "tags": 556,
+          "notes": 20,
+          "comments": 66,
+          "total": 642
+        },
+        "avg_per_photo": 24.69
+      },
+      {
+        "subject": "Cabins",
+        "photos": 45,
+        "interactions": {
+          "tags": 508,
+          "notes": 28,
+          "comments": 89,
+          "total": 625
+        },
+        "avg_per_photo": 13.89
+      },
+      {
+        "subject": "Grocery stores",
+        "photos": 14,
+        "interactions": {
+          "tags": 303,
+          "notes": 63,
+          "comments": 238,
+          "total": 604
+        },
+        "avg_per_photo": 43.14
+      },
+      {
+        "subject": "Industry",
+        "photos": 13,
+        "interactions": {
+          "tags": 352,
+          "notes": 13,
+          "comments": 234,
+          "total": 599
+        },
+        "avg_per_photo": 46.08
+      },
+      {
+        "subject": "Commercial facilities",
+        "photos": 142,
+        "interactions": {
+          "tags": 436,
+          "notes": 0,
+          "comments": 157,
+          "total": 593
+        },
+        "avg_per_photo": 4.18
+      },
+      {
+        "subject": "Houses",
+        "photos": 40,
+        "interactions": {
+          "tags": 389,
+          "notes": 22,
+          "comments": 180,
+          "total": 591
+        },
+        "avg_per_photo": 14.78
+      },
+      {
+        "subject": "Furnaces",
+        "photos": 23,
+        "interactions": {
+          "tags": 457,
+          "notes": 16,
+          "comments": 108,
+          "total": 581
+        },
+        "avg_per_photo": 25.26
+      },
+      {
+        "subject": "Railroad stations",
+        "photos": 29,
+        "interactions": {
+          "tags": 379,
+          "notes": 60,
+          "comments": 138,
+          "total": 577
+        },
+        "avg_per_photo": 19.9
+      },
+      {
+        "subject": "Railroad locomotives",
+        "photos": 27,
+        "interactions": {
+          "tags": 485,
+          "notes": 24,
+          "comments": 66,
+          "total": 575
+        },
+        "avg_per_photo": 21.3
+      },
+      {
+        "subject": "Engines",
+        "photos": 15,
+        "interactions": {
+          "tags": 516,
+          "notes": 12,
+          "comments": 36,
+          "total": 564
+        },
+        "avg_per_photo": 37.6
+      },
+      {
+        "subject": "Railroad construction & maintenance",
+        "photos": 27,
+        "interactions": {
+          "tags": 469,
+          "notes": 19,
+          "comments": 72,
+          "total": 560
+        },
+        "avg_per_photo": 20.74
+      },
+      {
+        "subject": "Railroad tracks",
+        "photos": 32,
+        "interactions": {
+          "tags": 510,
+          "notes": 9,
+          "comments": 36,
+          "total": 555
+        },
+        "avg_per_photo": 17.34
+      },
+      {
+        "subject": "Children.",
+        "photos": 16,
+        "interactions": {
+          "tags": 364,
+          "notes": 62,
+          "comments": 126,
+          "total": 552
+        },
+        "avg_per_photo": 34.5
+      },
+      {
+        "subject": "Migrant laborers",
+        "photos": 19,
+        "interactions": {
+          "tags": 435,
+          "notes": 30,
+          "comments": 71,
+          "total": 536
+        },
+        "avg_per_photo": 28.21
+      },
+      {
+        "subject": "Valleys",
+        "photos": 23,
+        "interactions": {
+          "tags": 498,
+          "notes": 3,
+          "comments": 35,
+          "total": 536
+        },
+        "avg_per_photo": 23.3
+      },
+      {
+        "subject": "Families",
+        "photos": 25,
+        "interactions": {
+          "tags": 333,
+          "notes": 61,
+          "comments": 135,
+          "total": 529
+        },
+        "avg_per_photo": 21.16
+      },
+      {
+        "subject": "Salvage",
+        "photos": 14,
+        "interactions": {
+          "tags": 445,
+          "notes": 24,
+          "comments": 58,
+          "total": 527
+        },
+        "avg_per_photo": 37.64
+      },
+      {
+        "subject": "Couples",
+        "photos": 25,
+        "interactions": {
+          "tags": 462,
+          "notes": 16,
+          "comments": 46,
+          "total": 524
+        },
+        "avg_per_photo": 20.96
+      },
+      {
+        "subject": "Trucks",
+        "photos": 18,
+        "interactions": {
+          "tags": 449,
+          "notes": 26,
+          "comments": 49,
+          "total": 524
+        },
+        "avg_per_photo": 29.11
+      },
+      {
+        "subject": "Farming",
+        "photos": 21,
+        "interactions": {
+          "tags": 427,
+          "notes": 27,
+          "comments": 65,
+          "total": 519
+        },
+        "avg_per_photo": 24.71
+      },
+      {
+        "subject": "Night",
+        "photos": 24,
+        "interactions": {
+          "tags": 436,
+          "notes": 14,
+          "comments": 67,
+          "total": 517
+        },
+        "avg_per_photo": 21.54
+      },
+      {
+        "subject": "Agricultural laborers",
+        "photos": 22,
+        "interactions": {
+          "tags": 401,
+          "notes": 33,
+          "comments": 82,
+          "total": 516
+        },
+        "avg_per_photo": 23.45
+      },
+      {
+        "subject": "Bayonets",
+        "photos": 59,
+        "interactions": {
+          "tags": 460,
+          "notes": 0,
+          "comments": 55,
+          "total": 515
+        },
+        "avg_per_photo": 8.73
+      },
+      {
+        "subject": "Cotton plantations",
+        "photos": 24,
+        "interactions": {
+          "tags": 414,
+          "notes": 32,
+          "comments": 63,
+          "total": 509
+        },
+        "avg_per_photo": 21.21
+      },
+      {
+        "subject": "Posters",
+        "photos": 7,
+        "interactions": {
+          "tags": 256,
+          "notes": 40,
+          "comments": 210,
+          "total": 506
+        },
+        "avg_per_photo": 72.29
+      },
+      {
+        "subject": "Railroads",
+        "photos": 34,
+        "interactions": {
+          "tags": 457,
+          "notes": 5,
+          "comments": 32,
+          "total": 494
+        },
+        "avg_per_photo": 14.53
+      },
+      {
+        "subject": "Carts & wagons",
+        "photos": 11,
+        "interactions": {
+          "tags": 319,
+          "notes": 17,
+          "comments": 139,
+          "total": 475
+        },
+        "avg_per_photo": 43.18
+      },
+      {
+        "subject": "Mimetic buildings",
+        "photos": 66,
+        "interactions": {
+          "tags": 389,
+          "notes": 0,
+          "comments": 83,
+          "total": 472
+        },
+        "avg_per_photo": 7.15
+      },
+      {
+        "subject": "City & town life",
+        "photos": 24,
+        "interactions": {
+          "tags": 360,
+          "notes": 30,
+          "comments": 73,
+          "total": 463
+        },
+        "avg_per_photo": 19.29
+      },
+      {
+        "subject": "Eating & drinking facilities",
+        "photos": 60,
+        "interactions": {
+          "tags": 387,
+          "notes": 1,
+          "comments": 59,
+          "total": 447
+        },
+        "avg_per_photo": 7.45
+      },
+      {
+        "subject": "Copper mining",
+        "photos": 15,
+        "interactions": {
+          "tags": 379,
+          "notes": 17,
+          "comments": 50,
+          "total": 446
+        },
+        "avg_per_photo": 29.73
+      },
+      {
+        "subject": "Musicians",
+        "photos": 31,
+        "interactions": {
+          "tags": 355,
+          "notes": 16,
+          "comments": 63,
+          "total": 434
+        },
+        "avg_per_photo": 14.0
+      },
+      {
+        "subject": "Backdrops",
+        "photos": 44,
+        "interactions": {
+          "tags": 399,
+          "notes": 0,
+          "comments": 32,
+          "total": 431
+        },
+        "avg_per_photo": 9.8
+      },
+      {
+        "subject": "Painting",
+        "photos": 11,
+        "interactions": {
+          "tags": 359,
+          "notes": 16,
+          "comments": 56,
+          "total": 431
+        },
+        "avg_per_photo": 39.18
+      },
+      {
+        "subject": "Eating & drinking",
+        "photos": 11,
+        "interactions": {
+          "tags": 272,
+          "notes": 49,
+          "comments": 110,
+          "total": 431
+        },
+        "avg_per_photo": 39.18
+      },
+      {
+        "subject": "Barrage balloons",
+        "photos": 18,
+        "interactions": {
+          "tags": 352,
+          "notes": 11,
+          "comments": 59,
+          "total": 422
+        },
+        "avg_per_photo": 23.44
+      },
+      {
+        "subject": "Automobiles",
+        "photos": 14,
+        "interactions": {
+          "tags": 265,
+          "notes": 46,
+          "comments": 109,
+          "total": 420
+        },
+        "avg_per_photo": 30.0
+      },
+      {
+        "subject": "Veterans",
+        "photos": 24,
+        "interactions": {
+          "tags": 393,
+          "notes": 0,
+          "comments": 21,
+          "total": 414
+        },
+        "avg_per_photo": 17.25
+      },
+      {
+        "subject": "Cemeteries",
+        "photos": 11,
+        "interactions": {
+          "tags": 371,
+          "notes": 12,
+          "comments": 26,
+          "total": 409
+        },
+        "avg_per_photo": 37.18
+      },
+      {
+        "subject": "Corn",
+        "photos": 15,
+        "interactions": {
+          "tags": 335,
+          "notes": 20,
+          "comments": 52,
+          "total": 407
+        },
+        "avg_per_photo": 27.13
+      },
+      {
+        "subject": "Barbershops",
+        "photos": 86,
+        "interactions": {
+          "tags": 361,
+          "notes": 4,
+          "comments": 35,
+          "total": 400
+        },
+        "avg_per_photo": 4.65
+      },
+      {
+        "subject": "Banks",
+        "photos": 131,
+        "interactions": {
+          "tags": 257,
+          "notes": 0,
+          "comments": 130,
+          "total": 387
+        },
+        "avg_per_photo": 2.95
+      },
+      {
+        "subject": "Welding",
+        "photos": 10,
+        "interactions": {
+          "tags": 341,
+          "notes": 8,
+          "comments": 33,
+          "total": 382
+        },
+        "avg_per_photo": 38.2
+      },
+      {
+        "subject": "Poor persons.",
+        "photos": 2,
+        "interactions": {
+          "tags": 40,
+          "notes": 3,
+          "comments": 338,
+          "total": 381
+        },
+        "avg_per_photo": 190.5
+      },
+      {
+        "subject": "Mothers.",
+        "photos": 2,
+        "interactions": {
+          "tags": 40,
+          "notes": 3,
+          "comments": 338,
+          "total": 381
+        },
+        "avg_per_photo": 190.5
+      },
+      {
+        "subject": "Migrant agricultural laborers.",
+        "photos": 2,
+        "interactions": {
+          "tags": 40,
+          "notes": 3,
+          "comments": 338,
+          "total": 381
+        },
+        "avg_per_photo": 190.5
+      },
+      {
+        "subject": "Billboards",
+        "photos": 66,
+        "interactions": {
+          "tags": 333,
+          "notes": 0,
+          "comments": 40,
+          "total": 373
+        },
+        "avg_per_photo": 5.65
+      }
+    ],
+    "total_subjects": 1245
+  },
+  "collections": {
+    "top_20": [
+      {
+        "code": "ggbain",
+        "title": "Bain Collection",
+        "photos": 26721,
+        "interactions": {
+          "tags": 183112,
+          "notes": 7588,
+          "comments": 56414,
+          "total": 247114
+        },
+        "avg_per_photo": 9.25
+      },
+      {
+        "code": "fsac",
+        "title": "Farm Security Administration/Office of War Information Color Photographs",
+        "photos": 1611,
+        "interactions": {
+          "tags": 38770,
+          "notes": 2648,
+          "comments": 8800,
+          "total": 50218
+        },
+        "avg_per_photo": 31.17
+      },
+      {
+        "code": "ppmsc",
+        "title": "LC, Prints and Photographs Division (ppmsc)",
+        "photos": 1915,
+        "interactions": {
+          "tags": 9751,
+          "notes": 678,
+          "comments": 6543,
+          "total": 16972
+        },
+        "avg_per_photo": 8.86
+      },
+      {
+        "code": "mrg",
+        "title": "John Margolies Roadside America photograph archive",
+        "photos": 3337,
+        "interactions": {
+          "tags": 12706,
+          "notes": 9,
+          "comments": 3093,
+          "total": 15808
+        },
+        "avg_per_photo": 4.74
+      },
+      {
+        "code": "ppmsca",
+        "title": "LC, Prints and Photographs Division (ppmsca)",
+        "photos": 1460,
+        "interactions": {
+          "tags": 9710,
+          "notes": 110,
+          "comments": 2291,
+          "total": 12111
+        },
+        "avg_per_photo": 8.3
+      },
+      {
+        "code": "gottlieb",
+        "title": "William P. Gottlieb Collection",
+        "photos": 1111,
+        "interactions": {
+          "tags": 3259,
+          "notes": 157,
+          "comments": 1601,
+          "total": 5017
+        },
+        "avg_per_photo": 4.52
+      },
+      {
+        "code": "fsa",
+        "title": "Farm Security Administration/Office of War Information Black-and-White Negatives",
+        "photos": 132,
+        "interactions": {
+          "tags": 692,
+          "notes": 48,
+          "comments": 813,
+          "total": 1553
+        },
+        "avg_per_photo": 11.77
+      },
+      {
+        "code": "hec",
+        "title": "Harris & Ewing Collection",
+        "photos": 127,
+        "interactions": {
+          "tags": 412,
+          "notes": 14,
+          "comments": 667,
+          "total": 1093
+        },
+        "avg_per_photo": 8.61
+      },
+      {
+        "code": "cph",
+        "title": "Miscellaneous Items in High Demand",
+        "photos": 116,
+        "interactions": {
+          "tags": 469,
+          "notes": 27,
+          "comments": 485,
+          "total": 981
+        },
+        "avg_per_photo": 8.46
+      },
+      {
+        "code": "nclc",
+        "title": "National Child Labor Committee Collection",
+        "photos": 50,
+        "interactions": {
+          "tags": 672,
+          "notes": 10,
+          "comments": 272,
+          "total": 954
+        },
+        "avg_per_photo": 19.08
+      },
+      {
+        "code": "pan",
+        "title": "Panoramic Photographs",
+        "photos": 18,
+        "interactions": {
+          "tags": 259,
+          "notes": 12,
+          "comments": 112,
+          "total": 383
+        },
+        "avg_per_photo": 21.28
+      },
+      {
+        "code": "prokc",
+        "title": "Unknown (prokc)",
+        "photos": 33,
+        "interactions": {
+          "tags": 338,
+          "notes": 0,
+          "comments": 32,
+          "total": 370
+        },
+        "avg_per_photo": 11.21
+      },
+      {
+        "code": "highsm",
+        "title": "Highsmith (Carol M.) Archive",
+        "photos": 89,
+        "interactions": {
+          "tags": 165,
+          "notes": 2,
+          "comments": 198,
+          "total": 365
+        },
+        "avg_per_photo": 4.1
+      },
+      {
+        "code": "stereo",
+        "title": "Stereograph Cards",
+        "photos": 78,
+        "interactions": {
+          "tags": 154,
+          "notes": 7,
+          "comments": 112,
+          "total": 273
+        },
+        "avg_per_photo": 3.5
+      },
+      {
+        "code": "det",
+        "title": "Detroit Publishing Company",
+        "photos": 38,
+        "interactions": {
+          "tags": 137,
+          "notes": 0,
+          "comments": 71,
+          "total": 208
+        },
+        "avg_per_photo": 5.47
+      },
+      {
+        "code": "npcc",
+        "title": "Unknown (npcc)",
+        "photos": 18,
+        "interactions": {
+          "tags": 68,
+          "notes": 11,
+          "comments": 59,
+          "total": 138
+        },
+        "avg_per_photo": 7.67
+      },
+      {
+        "code": "ds",
+        "title": "Unknown (ds)",
+        "photos": 25,
+        "interactions": {
+          "tags": 80,
+          "notes": 0,
+          "comments": 56,
+          "total": 136
+        },
+        "avg_per_photo": 5.44
+      },
+      {
+        "code": "ppprs",
+        "title": "Unknown (ppprs)",
+        "photos": 6,
+        "interactions": {
+          "tags": 68,
+          "notes": 6,
+          "comments": 53,
+          "total": 127
+        },
+        "avg_per_photo": 21.17
+      },
+      {
+        "code": "cwpb",
+        "title": "Unknown (cwpb)",
+        "photos": 18,
+        "interactions": {
+          "tags": 71,
+          "notes": 5,
+          "comments": 40,
+          "total": 116
+        },
+        "avg_per_photo": 6.44
+      },
+      {
+        "code": "bbc",
+        "title": "Baseball Cards",
+        "photos": 4,
+        "interactions": {
+          "tags": 59,
+          "notes": 2,
+          "comments": 20,
+          "total": 81
+        },
+        "avg_per_photo": 20.25
+      }
+    ],
+    "total_collections": 33
+  },
+  "summary": {
+    "total_photos_analyzed": 43219,
+    "photos_with_subjects": 37799,
+    "total_user_tags": 266320,
+    "total_user_notes": 11508,
+    "total_user_comments": 83477,
+    "total_user_interactions": 361305
+  }
+}
