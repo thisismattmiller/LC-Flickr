@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library of Congress Flickr: Subject & Collection Popularity</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
+            padding: 10px;
+            background: #fff;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 15px;
+        }
+
+        h1 {
+            margin: 0 0 15px 0;
+            color: #333;
+            font-size: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .tab {
+            padding: 8px 16px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 14px;
+            color: #666;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .tab:hover {
+            color: #333;
+        }
+
+        .tab.active {
+            color: #0366d6;
+            border-bottom-color: #0366d6;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .stats-overview {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 13px;
+            color: #666;
+            flex-wrap: wrap;
+        }
+
+        .stat-card {
+            padding: 0;
+            background: none;
+        }
+
+        .stat-card.alt1,
+        .stat-card.alt2,
+        .stat-card.alt3 {
+            background: none;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .stat-value {
+            font-size: 13px;
+            font-weight: 600;
+            margin-left: 4px;
+            color: #333;
+        }
+
+        .controls {
+            margin-bottom: 12px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        label {
+            color: #666;
+        }
+
+        select, input {
+            padding: 4px 8px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 13px;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: #0366d6;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .items-list {
+            display: grid;
+            gap: 8px;
+        }
+
+        .item-card {
+            background: #fafafa;
+            padding: 10px;
+            border-radius: 3px;
+            border-left: 2px solid #0366d6;
+        }
+
+        .item-card:hover {
+            background: #f5f5f5;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 8px;
+        }
+
+        .item-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            flex: 1;
+        }
+
+        .item-rank {
+            background: #eee;
+            color: #666;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .item-stats {
+            display: flex;
+            gap: 15px;
+            margin-top: 8px;
+            font-size: 12px;
+        }
+
+        .stat {
+            padding: 0;
+            background: none;
+        }
+
+        .stat-name {
+            font-size: 12px;
+            color: #999;
+            margin-right: 4px;
+        }
+
+        .stat-num {
+            font-size: 12px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .bar-chart {
+            margin-top: 8px;
+            font-size: 11px;
+        }
+
+        .bar {
+            display: flex;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+
+        .bar-label {
+            width: 70px;
+            font-size: 11px;
+            color: #999;
+        }
+
+        .bar-fill {
+            height: 16px;
+            background: #0366d6;
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            padding: 0 6px;
+            color: white;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 40px 20px;
+            color: #999;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 18px;
+            }
+
+            .item-stats {
+                flex-wrap: wrap;
+            }
+
+            .controls {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Interaction Analysis by LCSH and Collection</h1>
+
+        <div class="stats-overview" id="statsOverview"></div>
+
+        <div class="tabs">
+            <button class="tab active" data-tab="subjects">Top LCSH Subjects</button>
+            <button class="tab" data-tab="collections">Collections</button>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="sortBy">Sort by:</label>
+                <select id="sortBy">
+                    <option value="total">Total Interactions</option>
+                    <option value="avg">Avg per Photo</option>
+                    <option value="photos">Photo Count</option>
+                    <option value="comments">Comments</option>
+                    <option value="tags">Tags</option>
+                    <option value="notes">Notes</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="limit">Show:</label>
+                <select id="limit">
+                    <option value="10">Top 10</option>
+                    <option value="20" selected>Top 20</option>
+                    <option value="50">Top 50</option>
+                    <option value="100">Top 100</option>
+                    <option value="all">All</option>
+                </select>
+            </div>
+
+            <input type="text" id="search" class="search-box" placeholder="Search...">
+        </div>
+
+        <div id="subjectsTab" class="tab-content active">
+            <div class="items-list" id="subjectsList"></div>
+        </div>
+
+        <div id="collectionsTab" class="tab-content">
+            <div class="items-list" id="collectionsList"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
